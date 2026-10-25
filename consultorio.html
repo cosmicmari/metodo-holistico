@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mi Consultorio Pro · Método Holístico Integral</title>
+<meta name="description" content="Tus precios, paquetes, meta del mes y a quién escribirle hoy, en tu celular.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Método Holístico Integral">
+<meta property="og:title" content="Mi Consultorio Pro · Método Holístico Integral">
+<meta property="og:description" content="Tus precios, paquetes, meta del mes y a quién escribirle hoy, en tu celular.">
+<meta property="og:image" content="https://cosmicmari.github.io/metodo-holistico/og-consultorio.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://cosmicmari.github.io/metodo-holistico/consultorio">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cosmicmari.github.io/metodo-holistico/og-consultorio.png">
+<link rel="icon" type="image/png" href="icono.png">
+<link rel="apple-touch-icon" href="icono.png">
+<meta name="theme-color" content="#4a2a7c">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}[hidden]{display:none!important}img{max-width:100%}</style>
+</head>
+<body>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Figtree:wght@400;500;600;700&display=swap">
+<style>
+/* App de una columna con pestañas fijas: Mi mes / Consultantes / Precios */
+:root{
+  --bg:#f7f4fb; --surface:#ffffff; --ink:#2a1f3d; --muted:#6c5f80; --line:#e3dcee;
+  --violet:#5b3a8e; --violet-soft:#efe8f8; --gold:#b8892f; --gold-soft:#f6eedc; --alert:#b4541f; --alert-soft:#fbe9df;
+  --display:"Young Serif", Georgia, "Times New Roman", serif;
+  --body:"Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#17121f; --surface:#211a2c; --ink:#f1ecf8; --muted:#b3a7c6; --line:#382d48;
+  --violet:#b99bea; --violet-soft:#2c2240; --gold:#e0b65c; --gold-soft:#2f2717; --alert:#f0a070; --alert-soft:#3a2418; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#17121f; --surface:#211a2c; --ink:#f1ecf8; --muted:#b3a7c6; --line:#382d48;
+  --violet:#b99bea; --violet-soft:#2c2240; --gold:#e0b65c; --gold-soft:#2f2717; --alert:#f0a070; --alert-soft:#3a2418; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.5;
+  padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px));padding-block:24px 48px}
+.wrap{max-width:600px;margin:0 auto;display:flex;flex-direction:column;gap:18px}
+.eyebrow{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);font-weight:700}
+h1{font-family:var(--display);font-weight:400;font-size:clamp(28px,7vw,36px);line-height:1.1;margin:4px 0 0}
+h2{font-family:var(--display);font-weight:400;font-size:21px;margin:0}
+.muted{color:var(--muted);font-size:14px;margin:0}
+nav{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:5px;position:sticky;top:env(safe-area-inset-top,0px);z-index:5}
+nav button{border:0;background:transparent;color:var(--muted);font:inherit;font-weight:600;font-size:14px;padding:10px 4px;border-radius:9px;cursor:pointer}
+nav button[aria-selected="true"]{background:var(--violet);color:var(--surface)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:14px}
+.card.gold{border:2px solid var(--gold)}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.stat{background:var(--violet-soft);border-radius:10px;padding:12px}
+.stat .n{font-family:var(--display);font-size:26px;color:var(--violet);font-variant-numeric:tabular-nums;line-height:1.1}
+.stat .l{font-size:13px;color:var(--muted)}
+.bar{height:12px;border-radius:99px;background:var(--line);overflow:hidden}
+.bar i{display:block;height:100%;background:var(--gold);border-radius:99px;transition:width .3s}
+.field{display:flex;flex-direction:column;gap:6px;min-width:0}
+label,.label{font-weight:600;font-size:14px}
+input,select,textarea{font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:10px 12px;width:100%;min-width:0}
+textarea{min-height:70px;resize:vertical}
+input:focus-visible,select:focus-visible,textarea:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.btn{font:inherit;font-weight:600;font-size:14px;cursor:pointer;border-radius:10px;padding:10px 14px;border:1px solid var(--violet);background:transparent;color:var(--violet)}
+.btn.solid{background:var(--violet);color:var(--surface)}
+.btn.small{padding:7px 10px;font-size:13px}
+.btns{display:flex;flex-wrap:wrap;gap:8px}
+.client{border:1px solid var(--line);border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:10px}
+.client.due{border-color:var(--alert);background:var(--alert-soft)}
+.client-top{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+.client-top>div{min-width:0}
+.name{font-weight:700;font-size:16px}
+.meta{font-size:13px;color:var(--muted)}
+.chip{font-size:12px;font-weight:700;border-radius:99px;padding:3px 10px;white-space:nowrap;background:var(--gold-soft);color:var(--gold)}
+.chip.alert{background:var(--alert);color:var(--surface)}
+.chip.ex{background:var(--violet-soft);color:var(--violet)}
+.notes{font-size:14px;margin:0;white-space:pre-wrap;overflow-wrap:anywhere}
+table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+td{padding:9px 0;border-bottom:1px solid var(--line)}
+td:last-child{text-align:right;font-weight:600}
+tr:last-child td{border-bottom:0}
+.msg{background:var(--violet-soft);border-radius:10px;padding:12px;font-style:italic;margin:0;font-size:14px}
+.banner{background:var(--gold-soft);border-radius:12px;padding:12px 14px;display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between}
+.banner p{margin:0;font-size:14px;min-width:0;flex:1 1 220px}
+.empty{text-align:center;color:var(--muted);padding:18px 8px}
+details summary{cursor:pointer;font-weight:600;color:var(--violet)}
+footer{font-size:12px;color:var(--muted);text-align:center}
+</style>
+
+<div class="wrap">
+  <header>
+    <span class="eyebrow">Kit de Aceleración · Método Holístico Integral</span>
+    <h1>Mi Consultorio Pro</h1>
+    <p class="muted">Tus precios, tus paquetes, tu meta del mes y cada consultante en un solo lugar.</p>
+  </header>
+
+  <div class="banner" id="exBanner" hidden>
+    <p>Estás viendo <b>consultantes de ejemplo</b> para que veas cómo funciona.</p>
+    <button class="btn small solid" id="clearEx" type="button">Borrar ejemplos y empezar</button>
+  </div>
+
+  <nav role="tablist">
+    <button role="tab" data-tab="mes" aria-selected="true">Mi mes</button>
+    <button role="tab" data-tab="consultantes" aria-selected="false">Consultantes</button>
+    <button role="tab" data-tab="precios" aria-selected="false">Precios</button>
+  </nav>
+
+  <!-- MI MES -->
+  <section data-panel="mes">
+    <div class="card gold">
+      <h2 id="mesTitulo">Este mes</h2>
+      <div class="stats">
+        <div class="stat"><div class="n" id="sIngreso">—</div><div class="l">cobrado este mes</div></div>
+        <div class="stat"><div class="n" id="sSesiones">—</div><div class="l">sesiones hechas</div></div>
+      </div>
+      <div class="field">
+        <div class="bar" aria-hidden="true"><i id="barra" style="width:0"></i></div>
+        <p class="muted" id="metaTexto"></p>
+      </div>
+    </div>
+    <div class="card" style="margin-top:14px">
+      <h2>Para escribirles hoy</h2>
+      <p class="muted">Consultantes que hace 3 semanas o más que no vienen, o a las que les quedan sesiones del paquete.</p>
+      <div id="pendientes" style="display:flex;flex-direction:column;gap:12px"></div>
+    </div>
+  </section>
+
+  <!-- CONSULTANTES -->
+  <section data-panel="consultantes" hidden>
+    <div class="card">
+      <details id="altaBox">
+        <summary>+ Sumar una consultante</summary>
+        <form id="alta" style="display:flex;flex-direction:column;gap:12px;margin-top:12px">
+          <div class="row">
+            <div class="field"><label for="aNombre">Nombre</label><input id="aNombre" required></div>
+            <div class="field"><label for="aTel">WhatsApp</label><input id="aTel" inputmode="tel"></div>
+          </div>
+          <div class="field"><label for="aMotivo">¿Por qué consulta?</label><input id="aMotivo" placeholder="Ansiedad, duelo, limpieza energética…"></div>
+          <div class="field"><label for="aNotas">Notas</label><textarea id="aNotas"></textarea></div>
+          <button class="btn solid" type="submit">Guardar consultante</button>
+        </form>
+      </details>
+    </div>
+    <div id="lista" style="display:flex;flex-direction:column;gap:12px;margin-top:14px"></div>
+  </section>
+
+  <!-- PRECIOS -->
+  <section data-panel="precios" hidden>
+    <div class="card">
+      <h2>Mi precio y mi meta</h2>
+      <div class="row">
+        <div class="field"><label for="moneda">Moneda</label>
+          <select id="moneda"><option value="$">$ (peso)</option><option value="US$">US$</option><option value="€">€</option><option value="S/">S/</option><option value="Bs">Bs</option><option value="Q">Q</option><option value="₡">₡</option><option value="G">G</option></select>
+        </div>
+        <div class="field"><label for="precio">Sesión suelta</label><input id="precio" type="number" inputmode="decimal" min="0"></div>
+      </div>
+      <div class="field"><label for="meta">Meta de ingresos del mes</label><input id="meta" type="number" inputmode="decimal" min="0"></div>
+      <p class="muted">¿No sabés qué precio poner? Usá la calculadora gratis del Método.</p>
+    </div>
+    <div class="card" style="margin-top:14px">
+      <h2>Mis paquetes</h2>
+      <div class="row">
+        <div class="field"><label for="d4">Descuento pack de 4 (%)</label><input id="d4" type="number" min="0" max="50"></div>
+        <div class="field"><label for="d8">Descuento pack de 8 (%)</label><input id="d8" type="number" min="0" max="50"></div>
+      </div>
+      <table><tbody id="tablaPacks"></tbody></table>
+      <p class="msg" id="frasePack"></p>
+      <button class="btn" type="button" data-copy="frasePack">Copiar la frase</button>
+    </div>
+    <div class="card" style="margin-top:14px">
+      <h2>Copia de seguridad</h2>
+      <p class="muted">Tus datos quedan guardados en este teléfono o compu. Una vez por semana copiá la copia de seguridad y mandátela por WhatsApp. Para recuperarla, pegala acá abajo.</p>
+      <div class="btns"><button class="btn" type="button" id="bkCopy">Copiar copia de seguridad</button></div>
+      <textarea id="bkIn" placeholder="Pegá acá tu copia de seguridad" aria-label="Pegar copia de seguridad"></textarea>
+      <div class="btns"><button class="btn" type="button" id="bkLoad">Recuperar mis datos</button></div>
+      <p class="muted" id="bkMsg" aria-live="polite"></p>
+    </div>
+  </section>
+
+  <footer>Mi Consultorio Pro · Método Holístico Integral</footer>
+</div>
+
+<script>
+(function(){
+  var KEY="mhi-consultorio-v1";
+  var $=function(id){return document.getElementById(id)};
+  function hoy(){var d=new Date();return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0")}
+  function haceDias(n){var d=new Date();d.setDate(d.getDate()-n);return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0")}
+  function dias(f){return Math.floor((new Date(hoy())-new Date(f))/86400000)}
+  function nice(x){var s=x<50?1:x<200?5:x<1000?10:x<5000?50:x<50000?500:1000;return Math.max(s,Math.round(x/s)*s)}
+  function esc(s){return String(s||"").replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+
+  function ejemplo(){
+    return {moneda:"$",precio:27000,meta:400000,d4:10,d8:15,ejemplo:true,clientas:[
+      {id:"e1",nombre:"Laura (ejemplo)",tel:"",motivo:"Ansiedad y mal dormir",notas:"Le hizo bien la limpieza. Quiere trabajar el tema laboral.",restan:2,ses:[{f:haceDias(16),m:nice(27000*4*.9)},{f:haceDias(9),m:0}]},
+      {id:"e2",nombre:"Carmen (ejemplo)",tel:"",motivo:"Duelo",notas:"Prefiere los jueves a la tarde.",restan:0,ses:[{f:haceDias(26),m:27000}]},
+      {id:"e3",nombre:"Sofía (ejemplo)",tel:"",motivo:"Primera consulta de radiestesia",notas:"",restan:0,ses:[{f:haceDias(3),m:27000}]}
+    ]};
+  }
+  var S;
+  try{S=JSON.parse(localStorage.getItem(KEY))}catch(_){S=null}
+  if(!S||!S.clientas) S=ejemplo();
+  function save(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(_){}}
+  function fmt(n){return S.moneda+" "+Math.round(n).toLocaleString("es-AR")}
+  function pack(n,d){return nice(S.precio*n*(1-d/100))}
+
+  function ultima(c){return c.ses.length?c.ses[c.ses.length-1].f:null}
+  function debe(c){var u=ultima(c);return c.restan>0||(u&&dias(u)>=21)}
+  function mensaje(c){
+    var n=c.nombre.replace(/\s*\(ejemplo\)/,"");
+    if(c.restan>0) return "Hola "+n+", ¿cómo venís? Te quedan "+c.restan+" sesiones de tu paquete. ¿Te reservo la próxima esta semana?";
+    return "Hola "+n+", ¿cómo seguiste después de nuestra última sesión? Si querés, esta semana tengo lugar para tu próxima consulta.";
+  }
+
+  function renderMes(){
+    var mes=hoy().slice(0,7), ing=0, n=0;
+    S.clientas.forEach(function(c){c.ses.forEach(function(s){if(s.f.slice(0,7)===mes){ing+=s.m;n++}})});
+    var nom=new Date().toLocaleDateString("es-AR",{month:"long"});
+    $("mesTitulo").textContent="Tu "+nom;
+    $("sIngreso").textContent=fmt(ing);
+    $("sSesiones").textContent=n;
+    var pct=S.meta?Math.min(100,ing/S.meta*100):0;
+    $("barra").style.width=pct+"%";
+    if(!S.meta) $("metaTexto").textContent="Poné tu meta del mes en Precios.";
+    else if(ing>=S.meta) $("metaTexto").textContent="¡Llegaste a tu meta de "+fmt(S.meta)+"! Todo lo que entre ahora es extra.";
+    else{var f=S.meta-ing;$("metaTexto").textContent="Te faltan "+fmt(f)+" para tu meta de "+fmt(S.meta)+": unas "+Math.ceil(f/S.precio)+" sesiones sueltas.";}
+    var pend=S.clientas.filter(debe);
+    $("pendientes").innerHTML=pend.length?pend.map(tarjeta).join(""):'<p class="empty">Nadie pendiente. ¡Vas al día!</p>';
+  }
+
+  function tarjeta(c){
+    var u=ultima(c), d=u?dias(u):null, due=debe(c);
+    var chip=c.restan>0?'<span class="chip">Le quedan '+c.restan+'</span>':(due?'<span class="chip alert">Escribile</span>':"");
+    var tot=c.ses.reduce(function(a,s){return a+s.m},0);
+    return '<div class="client'+(due&&c.restan===0?" due":"")+'" data-id="'+c.id+'">'+
+      '<div class="client-top"><div><div class="name">'+esc(c.nombre)+'</div>'+
+      '<div class="meta">'+(c.motivo?esc(c.motivo)+" · ":"")+(u?(d===0?"vino hoy":"última sesión hace "+d+" días"):"todavía sin sesiones")+" · "+c.ses.length+(c.ses.length===1?" sesión · ":" sesiones · ")+fmt(tot)+'</div></div>'+chip+'</div>'+
+      (c.notas?'<p class="notes">'+esc(c.notas)+'</p>':"")+
+      (due?'<p class="msg" id="m-'+c.id+'">'+esc(mensaje(c))+'</p>':"")+
+      '<div class="btns">'+
+        (c.restan>0?'<button class="btn small solid" data-act="usar">Sesión del pack</button>':'<button class="btn small solid" data-act="suelta">Sesión suelta · '+fmt(S.precio)+'</button>')+
+        '<button class="btn small" data-act="p4">Vendió pack 4</button>'+
+        '<button class="btn small" data-act="p8">Vendió pack 8</button>'+
+        (due?'<button class="btn small" data-copy="m-'+c.id+'">Copiar mensaje</button>':"")+
+        (c.tel?'<a class="btn small" style="text-decoration:none" target="_blank" rel="noopener" href="https://wa.me/'+c.tel.replace(/\D/g,"")+'?text='+encodeURIComponent(mensaje(c))+'">WhatsApp</a>':"")+
+        '<button class="btn small" data-act="borrar">Borrar</button>'+
+      '</div></div>';
+  }
+
+  function renderLista(){
+    var l=S.clientas.slice().sort(function(a,b){return (debe(b)-debe(a))||String(ultima(b)).localeCompare(String(ultima(a)))});
+    $("lista").innerHTML=l.length?l.map(tarjeta).join(""):'<p class="empty">Todavía no sumaste consultantes. Tocá “Sumar una consultante”.</p>';
+  }
+
+  function renderPrecios(){
+    $("moneda").value=S.moneda;$("precio").value=S.precio;$("meta").value=S.meta;$("d4").value=S.d4;$("d8").value=S.d8;
+    var p4=pack(4,S.d4), p8=pack(8,S.d8);
+    $("tablaPacks").innerHTML="<tr><td>Sesión suelta</td><td>"+fmt(S.precio)+"</td></tr>"+
+      "<tr><td>Pack de 4 (ahorra "+fmt(S.precio*4-p4)+")</td><td>"+fmt(p4)+"</td></tr>"+
+      "<tr><td>Pack de 8 (ahorra "+fmt(S.precio*8-p8)+")</td><td>"+fmt(p8)+"</td></tr>";
+    $("frasePack").textContent="«La sesión suelta sale "+fmt(S.precio)+". Si querés hacer un proceso completo, el pack de 4 sale "+fmt(p4)+" y te ahorrás "+fmt(S.precio*4-p4)+". ¿Cuál te sirve más?»";
+  }
+
+  function render(){ $("exBanner").hidden=!S.ejemplo; renderMes(); renderLista(); renderPrecios(); }
+
+  document.querySelectorAll("nav button").forEach(function(b){
+    b.addEventListener("click",function(){
+      document.querySelectorAll("nav button").forEach(function(x){x.setAttribute("aria-selected",x===b)});
+      document.querySelectorAll("[data-panel]").forEach(function(p){p.hidden=p.dataset.panel!==b.dataset.tab});
+      render();
+    });
+  });
+
+  document.addEventListener("click",function(e){
+    var cp=e.target.closest("[data-copy]");
+    if(cp){
+      var el=$(cp.dataset.copy), t=el.textContent, old=cp.textContent;
+      function ok(){cp.textContent="Copiado";setTimeout(function(){cp.textContent=old},1500)}
+      function sel(){var r=document.createRange();r.selectNodeContents(el);var s=getSelection();s.removeAllRanges();s.addRange(r);cp.textContent="Seleccionado: copialo"}
+      try{navigator.clipboard.writeText(t).then(ok,sel)}catch(_){sel()}
+      return;
+    }
+    var b=e.target.closest("[data-act]"); if(!b) return;
+    var id=b.closest("[data-id]").dataset.id, c=S.clientas.find(function(x){return x.id===id}), a=b.dataset.act;
+    if(a==="borrar"){
+      if(b.dataset.ok){S.clientas=S.clientas.filter(function(x){return x!==c})}
+      else{b.dataset.ok="1";b.textContent="¿Seguro? Tocá de nuevo";return}
+    }
+    if(a==="suelta") c.ses.push({f:hoy(),m:S.precio});
+    if(a==="usar"){c.ses.push({f:hoy(),m:0});c.restan--}
+    if(a==="p4"){c.ses.push({f:hoy(),m:pack(4,S.d4)});c.restan+=3}
+    if(a==="p8"){c.ses.push({f:hoy(),m:pack(8,S.d8)});c.restan+=7}
+    save();render();
+  });
+
+  $("alta").addEventListener("submit",function(e){
+    e.preventDefault();
+    var n=$("aNombre").value.trim(); if(!n){$("aNombre").focus();return}
+    S.clientas.push({id:"c"+Date.now(),nombre:n,tel:$("aTel").value.trim(),motivo:$("aMotivo").value.trim(),notas:$("aNotas").value.trim(),restan:0,ses:[]});
+    this.reset();$("altaBox").open=false;save();render();
+  });
+
+  ["moneda","precio","meta","d4","d8"].forEach(function(k){
+    $(k).addEventListener("change",function(){
+      var v=k==="moneda"?this.value:Math.max(0,parseFloat(this.value)||0);
+      if(k==="precio"&&!v) v=S.precio;
+      S[k]=v;save();render();
+    });
+  });
+
+  $("clearEx").addEventListener("click",function(){S.clientas=[];S.ejemplo=false;save();render()});
+
+  $("bkCopy").addEventListener("click",function(){
+    var t=JSON.stringify(S);
+    $("bkIn").value=t;
+    try{navigator.clipboard.writeText(t).then(function(){$("bkMsg").textContent="Copia de seguridad copiada. Pegala en un WhatsApp para vos."},function(){$("bkIn").select();$("bkMsg").textContent="Está seleccionada en el recuadro: copiala."})}
+    catch(_){$("bkIn").select();$("bkMsg").textContent="Está seleccionada en el recuadro: copiala."}
+  });
+  $("bkLoad").addEventListener("click",function(){
+    try{var d=JSON.parse($("bkIn").value);if(!d||!Array.isArray(d.clientas))throw 0;S=d;save();render();$("bkMsg").textContent="Listo: recuperamos "+d.clientas.length+" consultantes."}
+    catch(_){$("bkMsg").textContent="Ese texto no es una copia de seguridad. Copiala entera, desde la primera llave hasta la última."}
+  });
+
+  render();
+})();
+</script>
+
+</body>
+</html>
