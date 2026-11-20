@@ -97,7 +97,7 @@ function mostrar(niveles,tengo){
   const bloq=Object.entries(DATOS.vitrina||{}).filter(([n])=>!tengo.has(n));
   if(bloq.length){
     A.insertAdjacentHTML("beforeend",`<div class="sec">🔒 Para sumar a tu formación</div>`);
-    bloq.forEach(([n,v])=>A.insertAdjacentHTML("beforeend",`<div class="lock"><span class="p">${v.precio}</span><div class="t">🔒 ${v.titulo}</div><div class="s">${v.desc}</div><a href="${v.link}" target="_blank">Desbloquear</a><div class="s" style="margin-top:6px;font-size:.8em;opacity:.75">Pagás con el mismo mail de tu aula. Se habilita en tu aula dentro de las 24 h (casi siempre en minutos).</div></div>`));
+    bloq.forEach(([n,v])=>A.insertAdjacentHTML("beforeend",`<div class="lock"><span class="p">${v.precio}</span><div class="t">🔒 ${v.titulo}</div><div class="s">${v.desc}</div>${v.img?`<img src="${v.img}" alt="Opinión de un alumno" style="width:100%;border-radius:10px;margin:0 0 10px">`:""}<a href="${v.link}" target="_blank">Desbloquear${v.link2?" con tarjeta (USD)":""}</a>${v.link2?` <a href="${v.link2}" target="_blank" style="background:#009ee3;margin-top:6px">Mercado Pago (${v.precio2})</a>`:""}<div class="s" style="margin-top:6px;font-size:.8em;opacity:.75">Pagás con el mismo mail de tu aula. Se habilita en tu aula dentro de las 24 h (casi siempre en minutos).</div></div>`));
   }
 }
 const TIPOS={".pdf":"application/pdf",".mp4":"video/mp4",".m4a":"audio/mp4",".html":"text/html"};
