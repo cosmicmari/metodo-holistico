@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sesión Guiada · Método Holístico Integral</title>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--azul:#16233B;--verde:#1FA35A;--verde2:#178048;--claro:#EAF8EF;--oro:#FFC93C;--lila:#8B6FC9;--celeste:#3A9FD8;--naranja:#F08A3C;--rojo:#D9534F}
+*{box-sizing:border-box}
+body{margin:0;font-family:Nunito,sans-serif;background:#F6FAF7;color:var(--azul)}
+header{background:var(--azul);color:#fff;padding:14px 18px;display:flex;align-items:center;justify-content:space-between}
+header h1{font-family:'Baloo 2';font-size:20px;margin:0}
+header small{opacity:.75}
+.wrap{max-width:560px;margin:0 auto;padding:16px}
+.pasos{display:flex;gap:4px;margin-bottom:14px}
+.pasos div{flex:1;height:6px;border-radius:3px;background:#d9e4dc}
+.pasos div.on{background:var(--verde)}
+.card{background:#fff;border-radius:16px;padding:18px;box-shadow:0 2px 10px rgba(22,35,59,.08);margin-bottom:14px}
+h2{font-family:'Baloo 2';font-size:22px;margin:0 0 4px}
+.sub{color:#5a6577;margin:0 0 14px;font-size:15px}
+label{display:block;font-weight:700;margin:12px 0 4px;font-size:14px}
+input,select,textarea{width:100%;padding:11px;border:1.5px solid #cfd8d2;border-radius:10px;font:inherit;font-size:16px}
+textarea{min-height:80px}
+.aviso{background:#FFF6DB;border-left:4px solid var(--oro);padding:10px 12px;border-radius:8px;font-size:14px;margin:10px 0}
+.giro{display:flex;align-items:center;gap:12px;background:var(--claro);border-radius:12px;padding:12px;margin:10px 0}
+.giro .flecha{font-size:34px;line-height:1}
+.grupo{margin:14px 0 6px;font-family:'Baloo 2';font-size:17px;display:flex;align-items:center;gap:8px}
+.punto{width:12px;height:12px;border-radius:50%}
+.et{display:flex;align-items:center;justify-content:space-between;padding:10px 12px;border:1.5px solid #e2e8e4;border-radius:10px;margin:6px 0;cursor:pointer;user-select:none}
+.et.si{border-color:var(--verde);background:var(--claro)}
+.et .tag{font-size:13px;font-weight:700;padding:3px 10px;border-radius:20px;background:#eef1ef;color:#6b7280}
+.et.si .tag{background:var(--verde);color:#fff}
+.chakras{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-top:6px}
+.chakras button{padding:8px 0;border-radius:8px;border:1.5px solid #e2e8e4;background:#fff;font:inherit;font-weight:700;cursor:pointer}
+.chakras button.si{background:var(--lila);color:#fff;border-color:var(--lila)}
+.btns{display:flex;gap:10px;margin-top:16px}
+.btn{flex:1;padding:14px;border:0;border-radius:12px;font:inherit;font-weight:700;font-size:16px;cursor:pointer}
+.prim{background:var(--verde);color:#fff}.sec{background:#e7ece9;color:var(--azul)}
+.hecho{display:flex;gap:10px;align-items:center;padding:10px;border-radius:10px;border:1.5px solid #e2e8e4;margin:6px 0}
+.hecho input{width:22px;height:22px}
+.oculto{display:none}
+/* informe */
+#informe{background:#fff;border-radius:16px;padding:26px;box-shadow:0 2px 10px rgba(22,35,59,.08)}
+.inf-cab{display:flex;align-items:center;gap:14px;border-bottom:3px solid var(--verde);padding-bottom:12px;margin-bottom:14px}
+.inf-cab img{width:64px;height:64px;object-fit:contain;border-radius:50%}
+.inf-cab h3{font-family:'Baloo 2';margin:0;font-size:22px}
+.inf-sec{margin:14px 0}
+.inf-sec h4{font-family:'Baloo 2';margin:0 0 6px;color:var(--verde2);font-size:17px}
+.inf-sec ul{margin:0;padding-left:20px}
+.evol{display:flex;gap:10px}
+.evol div{flex:1;text-align:center;background:var(--claro);border-radius:10px;padding:10px}
+.evol b{font-size:26px;display:block;font-family:'Baloo 2'}
+.pie{font-size:12px;color:#7a8494;border-top:1px solid #e2e8e4;padding-top:10px;margin-top:16px}
+@media print{header,.pasos,.btns,.noimp{display:none!important}body{background:#fff}#informe{box-shadow:none;padding:0}}
+</style>
+</head>
+<body>
+<header><div><h1>Sesión Guiada</h1><small>Método Holístico Integral · péndulo hebreo</small></div><span style="font-size:26px">☽</span></header>
+<div class="wrap">
+<div class="pasos" id="barra"></div>
+
+<!-- 0 · TERAPEUTA (una sola vez) -->
+<section class="card paso" data-p="0">
+<h2>Tu consultorio</h2>
+<p class="sub">Se carga una sola vez. Aparece en tus fichas de sesión.</p>
+<label>Tu nombre profesional</label><input id="tNombre" placeholder="Ej.: Luz Terapias Holísticas">
+<label>Tu WhatsApp o Instagram</label><input id="tContacto" placeholder="Ej.: WhatsApp +54 9 ...">
+<label>Tu logo (opcional)</label><input type="file" id="tLogo" accept="image/*">
+<div class="btns"><button class="btn prim" onclick="ir(1)">Empezar una sesión</button></div>
+</section>
+
+<!-- 1 · TESTIGO -->
+<section class="card paso oculto" data-p="1">
+<h2>1 · El testigo</h2>
+<p class="sub">Papel con lápiz grafito: nombre completo y fecha de nacimiento.</p>
+<label>Nombre completo de la consultante</label><input id="cNombre" list="previas" placeholder="Como lo escribiste en el testigo">
+<datalist id="previas"></datalist>
+<label>Fecha de nacimiento</label><input id="cFecha" type="date">
+<label>Modalidad</label><select id="cModo"><option>A distancia (sobre el gráfico de chakras)</option><option>Presencial</option></select>
+<label>Motivo de consulta</label><textarea id="cMotivo" placeholder="Con sus palabras: qué le pasa, qué siente"></textarea>
+<div class="aviso" id="avisoPrevia" style="display:none"></div>
+<div class="btns"><button class="btn sec" onclick="ir(0)">Atrás</button><button class="btn prim" onclick="ir(2)">Seguir</button></div>
+</section>
+
+<!-- 2 · TESTEO -->
+<section class="card paso oculto" data-p="2">
+<h2>2 · Testeo, etiqueta por etiqueta</h2>
+<p class="sub">Campo cerrado, lado liso. Tocá cada etiqueta que el péndulo marcó que SÍ.</p>
+<div class="aviso">Primero mirá cuál es tu sí y cuál es tu no. Cada terapeuta tiene los suyos (por ejemplo, círculo horario = sí, diagonal = no).</div>
+<div class="grupo"><span class="punto" style="background:var(--celeste)"></span>Miasmas</div>
+<div id="lMiasmas"></div>
+<div class="grupo"><span class="punto" style="background:var(--naranja)"></span>Magia</div>
+<div id="lMagia"></div>
+<div class="aviso">Magia común: se llega por descarte (no es ritual ni de reencarnación).</div>
+<div class="grupo"><span class="punto" style="background:var(--lila)"></span>Por chakra (tocá el número donde marcó)</div>
+<div id="lChakra"></div>
+<div class="btns"><button class="btn sec" onclick="ir(1)">Atrás</button><button class="btn prim" onclick="ir(3)">Seguir</button></div>
+</section>
+
+<!-- 3 · ABRIR CAMPO -->
+<section class="card paso oculto" data-p="3">
+<h2>3 · Abrir el campo</h2>
+<div class="aviso"><b>La consultante tiene que estar SOLA</b> cuando abrís el campo para limpiar.</div>
+<div class="giro"><span class="flecha">↺</span><div><b>Antihorario, 3 veces</b><br>De la cabeza a los pies.</div></div>
+<label class="hecho"><input type="checkbox" id="okAbrir"> Campo abierto</label>
+<div class="btns"><button class="btn sec" onclick="ir(2)">Atrás</button><button class="btn prim" onclick="ir(4)">Seguir</button></div>
+</section>
+
+<!-- 4 · RETIRAR -->
+<section class="card paso oculto" data-p="4">
+<h2>4 · Retirar</h2>
+<p class="sub">Lo que se retira, antihorario. Limpiá por chakra y dejá que el péndulo se mueva hasta que frene.</p>
+<div class="giro"><span class="flecha">↺</span><div><b>Antihorario</b> · lado ranurado o con su etiqueta</div></div>
+<div id="lRetirar"></div>
+<div class="btns"><button class="btn sec" onclick="ir(3)">Atrás</button><button class="btn prim" onclick="ir(5)">Seguir</button></div>
+</section>
+
+<!-- 5 · IRRADIAR -->
+<section class="card paso oculto" data-p="5">
+<h2>5 · Irradiar</h2>
+<p class="sub">Lo que se entrega, horario. Intuitiva para irradiar.</p>
+<div class="giro"><span class="flecha">↻</span><div><b>Horario</b></div></div>
+<div class="aviso" id="avisoSesion"></div>
+<div class="grupo"><span class="punto" style="background:var(--verde)"></span>Por la emoción (medicina china)</div>
+<div id="lEmocion"></div>
+<label>Lo que canalizaste para irradiar</label><textarea id="canal" placeholder="Lo que te llegó para ella"></textarea>
+<div class="btns"><button class="btn sec" onclick="ir(4)">Atrás</button><button class="btn prim" onclick="ir(6)">Seguir</button></div>
+</section>
+
+<!-- 6 · CERRAR -->
+<section class="card paso oculto" data-p="6">
+<h2>6 · Cerrar el campo</h2>
+<div class="giro"><span class="flecha">↻</span><div><b>Horario, 3 veces</b><br>De los pies a la cabeza.</div></div>
+<label class="hecho"><input type="checkbox" id="okCerrar"> Campo cerrado</label>
+<label>Recomendaciones para la consultante</label><textarea id="recom" placeholder="Ej.: tomar mucha agua estos días, descansar, anotar sus sueños"></textarea>
+<label>Próxima sesión</label><input id="prox" type="date">
+<div class="btns"><button class="btn sec" onclick="ir(5)">Atrás</button><button class="btn prim" onclick="armarInforme()">Ver la ficha</button></div>
+</section>
+
+<!-- 7 · INFORME -->
+<section class="paso oculto" data-p="7">
+<div id="informe"></div>
+<div class="btns noimp"><button class="btn sec" onclick="ir(6)">Corregir</button><button class="btn prim" onclick="guardarYImprimir()">Guardar en mis fichas (PDF)</button></div>
+<div class="btns noimp"><button class="btn sec" onclick="nueva()">Nueva sesión</button></div>
+</section>
+</div>
+
+<script>
+const MIASMAS_R=["Borrar estrés","Borrar adicción","Borrar memoria celular enferma"];
+const MIASMAS_I=["Memoria química de salud perfecta","Patrón metabólico perfecto","Patrón genético perfecto"];
+const MAGIA=["Magia ritual","Magia de reencarnación","Magia común"];
+const POR_CHAKRA=["Larva astral","Larva magnética","Energía negativa","Mal de ojo"];
+const EMOC=[["Miedo o falta de energía","riñón"],["Tristeza o duelo","pulmones"],["Preocupación","estómago o bazo-páncreas"]];
+const CHAK=["Raíz","Sacro","Plexo solar","Corazón","Garganta","Tercer ojo","Corona"];
+let S={testeo:{},chakra:{},retirado:{},irradia:{},emoc:{}};
+let logo=localStorage.getItem("mhi_logo")||"";
+const $=id=>document.getElementById(id);
+
+function et(cont,clave,texto,obj){
+  const d=document.createElement("div");d.className="et";d.innerHTML=`<span>${texto}</span><span class="tag">no</span>`;
+  d.onclick=()=>{obj[clave]=!obj[clave];d.classList.toggle("si",obj[clave]);d.querySelector(".tag").textContent=obj[clave]?"sí":"no"};
+  $(cont).appendChild(d);
+}
+et("lMiasmas","Miasma","Miasma",S.testeo);
+MAGIA.forEach(m=>et("lMagia",m,m,S.testeo));
+EMOC.forEach(([e,o])=>et("lEmocion",e,`${e} → <b>${o}</b>`,S.emoc));
+POR_CHAKRA.forEach(p=>{
+  const w=document.createElement("div");w.innerHTML=`<div style="font-weight:700;margin-top:10px">${p}</div>`;
+  const g=document.createElement("div");g.className="chakras";
+  for(let i=1;i<=7;i++){const b=document.createElement("button");b.textContent=i;b.title=CHAK[i-1];
+    b.onclick=()=>{S.chakra[p]=S.chakra[p]||{};S.chakra[p][i]=!S.chakra[p][i];b.classList.toggle("si",S.chakra[p][i])};g.appendChild(b)}
+  w.appendChild(g);$("lChakra").appendChild(w);
+});
+const aviso2=document.createElement("div");aviso2.className="aviso";aviso2.textContent="No hay dos larvas en un mismo chakra: si marcó en dos, volvé a testear.";$("lChakra").appendChild(aviso2);
+
+function hallazgos(){
+  const out=[];
+  Object.keys(S.testeo).filter(k=>S.testeo[k]).forEach(k=>out.push(k));
+  Object.entries(S.chakra).forEach(([p,o])=>Object.keys(o).filter(i=>o[i]).forEach(i=>out.push(`${p} · chakra ${i} (${CHAK[i-1]})`)));
+  return out;
+}
+function historial(){return JSON.parse(localStorage.getItem("mhi_hist")||"{}")}
+function previas(nom){return (historial()[nom.trim().toLowerCase()]||[])}
+
+function ir(n){
+  if(n===1){guardarTerapeuta();const dl=$("previas");dl.innerHTML=Object.values(historial()).map(a=>`<option value="${a[0].nombre}">`).join("")}
+  if(n===2){const p=previas($("cNombre").value);if(p.length){const a=$("avisoPrevia");a.style.display="block";a.innerHTML=`Es su sesión <b>${p.length+1}</b>. La vez pasada salieron ${p[p.length-1].hallazgos.length} cosas: re-testealas, la lista tiene que bajar.`}}
+  if(n===4){const l=$("lRetirar");l.innerHTML="";const h=hallazgos();
+    if(!h.length)l.innerHTML='<div class="aviso">No marcaste nada en el testeo. Si es así, pasá a irradiar.</div>';
+    h.forEach(x=>{if(x==="Miasma"){l.insertAdjacentHTML("beforeend",'<div class="grupo"><span class="punto" style="background:var(--celeste)"></span>Limpieza del miasma</div>'+MIASMAS_R.map(m=>`<label class="hecho"><input type="checkbox"> ↺ ${m} <small>(antihorario)</small></label>`).join("")+MIASMAS_I.map(m=>`<label class="hecho"><input type="checkbox"> ↻ ${m} <small>(horario)</small></label>`).join(""));return}
+      const d=document.createElement("label");d.className="hecho";d.innerHTML=`<input type="checkbox"> ↺ ${x}`;l.appendChild(d)})}
+  if(n===5){const num=previas($("cNombre").value).length+1;
+    $("avisoSesion").innerHTML=num<=3?`Sesión ${num}: todavía es de mucha limpieza y <b>poco irradiar</b>, para no mover demasiada energía.`:`Sesión ${num}: ya casi no hay limpieza, <b>irradiá lo canalizado</b>.`;
+    if(!$("prox").value){const d=new Date();d.setDate(d.getDate()+(num<3?7:15));$("prox").value=d.toISOString().slice(0,10)}}
+  document.querySelectorAll(".paso").forEach(s=>s.classList.toggle("oculto",+s.dataset.p!==n));
+  $("barra").innerHTML=[1,2,3,4,5,6,7].map(i=>`<div class="${i<=n?'on':''}"></div>`).join("");
+  scrollTo(0,0);
+}
+function guardarTerapeuta(){localStorage.setItem("mhi_t",JSON.stringify({n:$("tNombre").value,c:$("tContacto").value}))}
+$("tLogo").onchange=e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{logo=r.result;localStorage.setItem("mhi_logo",logo)};r.readAsDataURL(f)};
+(()=>{const t=JSON.parse(localStorage.getItem("mhi_t")||"{}");$("tNombre").value=t.n||"";$("tContacto").value=t.c||""})();
+
+function fmt(d){if(!d)return"";const[a,m,dd]=d.split("-");return `${dd}/${m}/${a}`}
+function armarInforme(){
+  const t=JSON.parse(localStorage.getItem("mhi_t")||"{}");const nom=$("cNombre").value||"Consultante";
+  const prev=previas(nom);const num=prev.length+1;const h=hallazgos();
+  const irr=[...EMOC.filter(([e])=>S.emoc[e]).map(([e,o])=>`Armonización de ${o}`)];
+  const hoy=new Date().toLocaleDateString("es-AR");
+  $("informe").innerHTML=`
+  <div class="inf-cab">${logo?`<img src="${logo}">`:""}<div><h3>${t.n||"Tu consultorio"}</h3><div>Ficha de sesión · ${hoy}</div><div style="color:#D9534F;font-weight:700;font-size:13px">SOLO PARA LA TERAPEUTA · no se le entrega a la consultante</div></div></div>
+  <div class="inf-sec"><b>${nom}</b>${$("cFecha").value?` · nacida el ${fmt($("cFecha").value)}`:""}<br>Sesión ${num} · ${$("cModo").value.split(" (")[0]}</div>
+  ${$("cMotivo").value?`<div class="inf-sec"><h4>Motivo de consulta</h4>${$("cMotivo").value}</div>`:""}
+  ${prev.length?`<div class="inf-sec"><h4>Su evolución</h4><div class="evol"><div><b>${prev[prev.length-1].hallazgos.length}</b>la sesión anterior</div><div><b>${h.length}</b>hoy</div></div></div>`:""}
+  <div class="inf-sec"><h4>Lo que se limpió hoy</h4>${h.length?`<ul>${h.map(x=>`<li>${x==="Miasma"?"Miasma (limpieza completa)":x}</li>`).join("")}</ul>`:"Su campo no mostró nada para limpiar hoy."}</div>
+  ${irr.length||$("canal").value?`<div class="inf-sec"><h4>Lo que se irradió</h4><ul>${irr.map(x=>`<li>${x}</li>`).join("")}${$("canal").value?`<li>${$("canal").value}</li>`:""}</ul></div>`:""}
+  ${$("recom").value?`<div class="inf-sec"><h4>Recomendaciones que le diste</h4>${$("recom").value}</div>`:""}
+  ${$("prox").value?`<div class="inf-sec"><h4>Próxima sesión</h4>${fmt($("prox").value)}</div>`:""}
+  <div class="pie">${t.n||""}${t.c?" · "+t.c:""}</div><div class="aviso noimp" style="margin-top:14px">Contale la sesión <b>con tus propias palabras</b>: cómo la viste, cómo se fue liberando, qué le recomendás. No hace falta nombrar larvas, magia ni mal de ojo, para no generarle miedo.</div>`;
+  ir(7);
+}
+function guardarSesion(){
+  const nom=$("cNombre").value.trim();if(!nom)return;const H=historial();const k=nom.toLowerCase();
+  H[k]=H[k]||[];const hoy=new Date().toISOString().slice(0,10);
+  if(!H[k].some(s=>s.fecha===hoy))H[k].push({nombre:nom,fecha:hoy,hallazgos:hallazgos()});
+  localStorage.setItem("mhi_hist",JSON.stringify(H));
+}
+function guardarYImprimir(){guardarSesion();print()}
+function nueva(){location.reload()}
+ir(0);
+</script>
+</body>
+</html>
