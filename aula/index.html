@@ -30,6 +30,11 @@ input{width:100%;padding:13px;border:1.5px solid #cfd8d2;border-radius:10px;font
 #app .bar{background:var(--azul);color:#fff;padding:10px 14px;display:flex;justify-content:space-between;align-items:center}
 #app iframe{flex:1;border:0;width:100%}
 .hola{background:var(--claro);border-radius:12px;padding:14px;margin-bottom:6px}
+.lock{background:#fff;border:2px dashed #cfd8d2;border-radius:14px;padding:16px;margin:10px 0;position:relative}
+.lock .t{font-weight:700;opacity:.75}
+.lock .s{font-size:14px;color:#6b7280;margin:4px 0 10px}
+.lock .p{position:absolute;top:14px;right:14px;background:var(--oro);color:var(--azul);font-weight:700;font-size:13px;border-radius:20px;padding:3px 10px}
+.lock a{display:inline-block;background:var(--azul);color:#fff;text-decoration:none;font-weight:700;border-radius:10px;padding:10px 16px}
 </style>
 </head>
 <body>
@@ -61,18 +66,18 @@ async function entrar(guardado){
     const env=DATOS.a[id];
     if(!env){e.textContent="No encontramos ese mail entre las compradoras. Revisá que sea el mismo de la compra o escribinos al grupo.";localStorage.removeItem("aula_mail");return}
     const base=await crypto.subtle.importKey("raw",enc.encode(m),"PBKDF2",false,["deriveBits"]);
-    const niveles=[];
+    const niveles=[];const tengo=new Set();
     for(const n of ["base","nivel2","kit","avanzado"]){
       if(!env[n])continue;
       const der=new Uint8Array(await crypto.subtle.deriveBits({name:"PBKDF2",hash:"SHA-256",salt:enc.encode(DATOS.sal+n),iterations:DATOS.iter},base,256));
       const w=hex(env[n].w);const k=toHex(w.map((x,i)=>x^der[i]));
-      niveles.push(JSON.parse(new TextDecoder().decode(await aes(k,env[n].iv,await bajar("n-"+n+".bin")))));
+      tengo.add(n);niveles.push(JSON.parse(new TextDecoder().decode(await aes(k,env[n].iv,await bajar("n-"+n+".bin")))));
     }
-    localStorage.setItem("aula_mail",m);mostrar(niveles);
+    localStorage.setItem("aula_mail",m);mostrar(niveles,tengo);
   }catch(x){e.textContent="No pudimos abrir el aula. Probá de nuevo en un rato.";console.error(x)}
 }
 const ICON={pdf:"📘",video:"🎬",audio:"🎧",app:"📱",link:"🔗",clases:"▶️"};
-function mostrar(niveles){
+function mostrar(niveles,tengo){
   document.getElementById("login").style.display="none";document.getElementById("salir").style.display="";
   const A=document.getElementById("aula");A.innerHTML=`<div class="hola">Bienvenida a tu aula 💚 Todo lo que compraste está acá. Guardá esta página en tu celular para volver cuando quieras.</div>`;
   const porSec={};niveles.forEach(n=>n.items.forEach(it=>{(porSec[it.sec]=porSec[it.sec]||[]).push(it)}));
@@ -88,6 +93,11 @@ function mostrar(niveles){
       const zona=document.createElement("div");zona.className="media";
       d.onclick=()=>abrir(it,d,zona);A.appendChild(d);A.appendChild(zona);
     });
+  }
+  const bloq=Object.entries(DATOS.vitrina||{}).filter(([n])=>!tengo.has(n));
+  if(bloq.length){
+    A.insertAdjacentHTML("beforeend",`<div class="sec">🔒 Para sumar a tu formación</div>`);
+    bloq.forEach(([n,v])=>A.insertAdjacentHTML("beforeend",`<div class="lock"><span class="p">${v.precio}</span><div class="t">🔒 ${v.titulo}</div><div class="s">${v.desc}</div><a href="${v.link}" target="_blank">Desbloquear</a></div>`));
   }
 }
 const TIPOS={".pdf":"application/pdf",".mp4":"video/mp4",".m4a":"audio/mp4",".html":"text/html"};
