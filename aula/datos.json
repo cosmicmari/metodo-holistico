@@ -1,0 +1,24 @@
+{
+ "sal": "b4cc9abc2a2494f0459fe2c2460214ac",
+ "iter": 150000,
+ "a": {
+  "1f409a2d6807566632900f6c3f68c5a96abf1cba32890597ef14719bc8d2039a": {
+   "avanzado": {
+    "w": "d681e80a3d8ebbedacd9e423fc9445addab3d32c793b53e460080b35245f936d",
+    "iv": "ca021ab99605b151017fc918be6cfac5"
+   },
+   "base": {
+    "w": "f803535176acfa6e67b7ee163a25499a812ab2db030d5a50057a8985a4cb132b",
+    "iv": "09b8f974140b3fbcd4071449c438938a"
+   },
+   "kit": {
+    "w": "a925bf6e2a29e274c8e59802ec42fdea68d4fddf3057fa9004549632b26f80d1",
+    "iv": "679e7ac46d060e0fc65c2ab5b9e90f57"
+   },
+   "nivel2": {
+    "w": "7fff93cf5bc2e3965a3214a8f1ff70f39339d820e7a90cdbd626ebc2c5bb29a9",
+    "iv": "de7533e4f229e2258a00d52bcb636c40"
+   }
+  }
+ }
+}

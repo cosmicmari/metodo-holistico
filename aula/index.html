@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Tu aula · Método Holístico Integral</title>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--azul:#16233B;--verde:#1FA35A;--verde2:#178048;--claro:#EAF8EF;--oro:#FFC93C}
+*{box-sizing:border-box}
+body{margin:0;font-family:Nunito,sans-serif;background:#F6FAF7;color:var(--azul)}
+header{background:var(--azul);color:#fff;padding:16px 18px;display:flex;justify-content:space-between;align-items:center}
+header h1{font-family:'Baloo 2';font-size:21px;margin:0}
+header button{background:none;border:1px solid #fff6;color:#fff;border-radius:8px;padding:6px 10px;font:inherit;font-size:13px;cursor:pointer}
+.wrap{max-width:620px;margin:0 auto;padding:18px}
+.card{background:#fff;border-radius:16px;padding:20px;box-shadow:0 2px 10px rgba(22,35,59,.08);margin-bottom:16px}
+h2{font-family:'Baloo 2';font-size:22px;margin:0 0 10px}
+input{width:100%;padding:13px;border:1.5px solid #cfd8d2;border-radius:10px;font:inherit;font-size:16px}
+.btn{display:block;width:100%;padding:14px;border:0;border-radius:12px;background:var(--verde);color:#fff;font:inherit;font-weight:700;font-size:16px;cursor:pointer;margin-top:12px}
+.err{color:#c0392b;margin-top:10px;font-size:14px}
+.sec{font-family:'Baloo 2';font-size:19px;margin:22px 0 8px;color:var(--verde2)}
+.it{display:flex;align-items:center;gap:12px;background:#fff;border-radius:12px;padding:14px;margin:8px 0;box-shadow:0 1px 6px rgba(22,35,59,.07);cursor:pointer;text-decoration:none;color:inherit}
+.it .ic{font-size:24px;width:34px;text-align:center}
+.it .t{flex:1;font-weight:700}
+.it .s{font-size:13px;color:#6b7280;font-weight:400}
+.media{margin:6px 0 12px}
+.media video,.media audio{width:100%;border-radius:12px}
+#app{position:fixed;inset:0;background:#fff;z-index:9;display:none;flex-direction:column}
+#app .bar{background:var(--azul);color:#fff;padding:10px 14px;display:flex;justify-content:space-between;align-items:center}
+#app iframe{flex:1;border:0;width:100%}
+.hola{background:var(--claro);border-radius:12px;padding:14px;margin-bottom:6px}
+</style>
+</head>
+<body>
+<header><h1>Tu aula · Método Holístico Integral</h1><button id="salir" style="display:none" onclick="salir()">Salir</button></header>
+<div class="wrap">
+ <div class="card" id="login">
+  <h2>Entrá con tu mail</h2>
+  <p>Usá el mismo mail con el que compraste.</p>
+  <input id="mail" type="email" placeholder="tu@mail.com" autocomplete="email">
+  <button class="btn" onclick="entrar()">Entrar</button>
+  <div class="err" id="err"></div>
+ </div>
+ <div id="aula"></div>
+</div>
+<div id="app"><div class="bar"><b id="appTit"></b><button onclick="cerrarApp()" style="background:none;border:1px solid #fff6;color:#fff;border-radius:8px;padding:6px 10px">Volver al aula</button></div><iframe id="appFrame"></iframe></div>
+<script>
+const hex=h=>new Uint8Array(h.match(/../g).map(x=>parseInt(x,16)));
+const toHex=b=>[...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,"0")).join("");
+const enc=new TextEncoder();
+let DATOS=null;
+async function aes(keyHex,ivHex,buf){const k=await crypto.subtle.importKey("raw",hex(keyHex),"AES-CBC",false,["decrypt"]);return crypto.subtle.decrypt({name:"AES-CBC",iv:hex(ivHex)},k,buf)}
+async function bajar(ruta){const r=await fetch(ruta,{cache:"no-store"});if(!r.ok)throw new Error(ruta);return r.arrayBuffer()}
+async function entrar(guardado){
+  const m=(guardado||document.getElementById("mail").value).trim().toLowerCase();const e=document.getElementById("err");e.textContent="";
+  if(!m.includes("@")){e.textContent="Escribí tu mail.";return}
+  try{
+    DATOS=DATOS||JSON.parse(new TextDecoder().decode(await bajar("datos.json")));
+    const id=toHex(await crypto.subtle.digest("SHA-256",enc.encode(DATOS.sal+m)));
+    const env=DATOS.a[id];
+    if(!env){e.textContent="No encontramos ese mail entre las compradoras. Revisá que sea el mismo de la compra o escribinos al grupo.";localStorage.removeItem("aula_mail");return}
+    const base=await crypto.subtle.importKey("raw",enc.encode(m),"PBKDF2",false,["deriveBits"]);
+    const niveles=[];
+    for(const n of ["base","nivel2","kit","avanzado"]){
+      if(!env[n])continue;
+      const der=new Uint8Array(await crypto.subtle.deriveBits({name:"PBKDF2",hash:"SHA-256",salt:enc.encode(DATOS.sal+n),iterations:DATOS.iter},base,256));
+      const w=hex(env[n].w);const k=toHex(w.map((x,i)=>x^der[i]));
+      niveles.push(JSON.parse(new TextDecoder().decode(await aes(k,env[n].iv,await bajar("n-"+n+".bin")))));
+    }
+    localStorage.setItem("aula_mail",m);mostrar(niveles);
+  }catch(x){e.textContent="No pudimos abrir el aula. Probá de nuevo en un rato.";console.error(x)}
+}
+const ICON={pdf:"📘",video:"🎬",audio:"🎧",app:"📱",link:"🔗",clases:"▶️"};
+function mostrar(niveles){
+  document.getElementById("login").style.display="none";document.getElementById("salir").style.display="";
+  const A=document.getElementById("aula");A.innerHTML=`<div class="hola">Bienvenida a tu aula 💚 Todo lo que compraste está acá. Guardá esta página en tu celular para volver cuando quieras.</div>`;
+  const porSec={};niveles.forEach(n=>n.items.forEach(it=>{(porSec[it.sec]=porSec[it.sec]||[]).push(it)}));
+  for(const [sec,items] of Object.entries(porSec)){
+    A.insertAdjacentHTML("beforeend",`<div class="sec">${sec}</div>`);
+    items.forEach(it=>{
+      if(it.tipo==="clases"){
+        it.videos.forEach(v=>A.insertAdjacentHTML("beforeend",`<a class="it" target="_blank" href="https://www.youtube.com/watch?v=${v.id}"><span class="ic">▶️</span><span class="t">${v.titulo}<div class="s">Abre en YouTube con la cuenta de Google de tu mail de compra</div></span></a>`));
+        return}
+      if(it.tipo==="link"){A.insertAdjacentHTML("beforeend",`<a class="it" target="_blank" href="${it.url}"><span class="ic">${ICON.link}</span><span class="t">${it.titulo}</span></a>`);return}
+      const d=document.createElement("div");d.className="it";
+      d.innerHTML=`<span class="ic">${ICON[it.tipo]}</span><span class="t">${it.titulo}<div class="s">${it.tipo==="pdf"?"Tocá para abrir o descargar":it.tipo==="app"?"Tocá para abrir la app":"Tocá para escuchar"}</div></span>`;
+      const zona=document.createElement("div");zona.className="media";
+      d.onclick=()=>abrir(it,d,zona);A.appendChild(d);A.appendChild(zona);
+    });
+  }
+}
+const TIPOS={".pdf":"application/pdf",".mp4":"video/mp4",".m4a":"audio/mp4",".html":"text/html"};
+async function abrir(it,d,zona){
+  const s=d.querySelector(".s");const antes=s.textContent;s.textContent="Abriendo…";
+  try{
+    const buf=await aes(it.k,it.iv,await bajar(it.f));
+    if(it.tipo==="app"){document.getElementById("appTit").textContent="Sesión Guiada";document.getElementById("appFrame").srcdoc=new TextDecoder().decode(buf);document.getElementById("app").style.display="flex";s.textContent=antes;return}
+    const url=URL.createObjectURL(new Blob([buf],{type:TIPOS[it.ext]||"application/octet-stream"}));
+    if(it.tipo==="pdf"){const a=document.createElement("a");a.href=url;a.download=it.titulo+".pdf";a.target="_blank";document.body.appendChild(a);a.click();a.remove();s.textContent="Listo: se abrió o se descargó";return}
+    zona.innerHTML=it.tipo==="video"?`<video controls playsinline src="${url}"></video>`:`<audio controls src="${url}"></audio>`;
+    zona.firstChild.play().catch(()=>{});s.textContent=antes;
+  }catch(x){s.textContent="No se pudo abrir. Probá de nuevo.";console.error(x)}
+}
+function cerrarApp(){document.getElementById("app").style.display="none"}
+function salir(){localStorage.removeItem("aula_mail");location.reload()}
+const g=localStorage.getItem("aula_mail");if(g)entrar(g);
+document.getElementById("mail").addEventListener("keydown",e=>{if(e.key==="Enter")entrar()});
+</script>
+</body>
+</html>
