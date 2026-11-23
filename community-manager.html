@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Tu Community Manager Holística</title>
+<meta name="theme-color" content="#130e29">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--azul:#2b1d5c;--verde:#2b1d5c;--verde2:#2b1d5c;--claro:#f1ebfb;--oro:#d8b46a;--fondo:#f8f2e7;--gris:#5d5470;--borde:#e3d9c6;--lila:#b9a2f2;--noche:#130e29;--tinta:#2a2140}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--fondo);color:var(--azul);font-family:Montserrat,sans-serif;font-size:16px;-webkit-text-size-adjust:100%}
+header{background:linear-gradient(135deg,var(--noche),var(--azul));color:#fff;padding:14px 16px calc(14px);position:sticky;top:0;z-index:5;display:flex;align-items:center;gap:10px}
+header .av{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--lila),var(--oro));display:grid;place-items:center;font-size:19px;flex:none}
+header b{font-family:'Cormorant Garamond',serif;font-size:17px;display:block;line-height:1.1}
+header small{opacity:.75;font-size:12px}
+.barra{height:5px;background:#1f1645}.barra i{display:block;height:100%;background:var(--oro);width:0;transition:width .4s}
+main{max-width:640px;margin:0 auto;padding:16px 14px 120px}
+.burbuja{background:#fff;border:1px solid var(--borde);border-radius:4px 18px 18px 18px;padding:14px 16px;margin:6px 0 14px;line-height:1.5;box-shadow:0 1px 2px #0001}
+.burbuja h2{font-family:'Cormorant Garamond',serif;font-size:25px;margin:0 0 6px;color:var(--verde2)}
+.burbuja p{margin:6px 0}
+.tip{background:var(--claro);border-left:4px solid var(--verde);border-radius:10px;padding:10px 12px;font-size:14px;margin:10px 0}
+.tip b{color:var(--verde2)}
+label.q{display:block;font-weight:800;margin:16px 0 6px}
+label.q span{display:block;font-weight:400;color:var(--gris);font-size:14px}
+input[type=text],input[type=email],input[type=number],textarea,select{width:100%;padding:13px 14px;border:1.5px solid var(--borde);border-radius:12px;font:inherit;background:#fff;color:var(--tinta)}
+textarea{min-height:92px;resize:vertical}
+input:focus,textarea:focus{outline:none;border-color:var(--verde)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1.5px solid var(--borde);background:#fff;border-radius:999px;padding:10px 14px;font:inherit;font-size:15px;cursor:pointer;color:var(--azul);-webkit-tap-highlight-color:transparent}
+.chip.on{background:var(--azul);border-color:var(--azul);color:#fff}
+.card-op{border:1.5px solid var(--borde);background:#fff;border-radius:14px;padding:12px 14px;margin:8px 0;cursor:pointer;display:block;width:100%;text-align:left;font:inherit;color:var(--azul)}
+.card-op.on{border-color:var(--verde);background:var(--claro);box-shadow:0 0 0 2px var(--verde) inset}
+.card-op b{display:block;font-size:16px}
+.card-op small{display:block;color:var(--gris);font-size:14px;margin-top:3px;line-height:1.4}
+.pie{position:fixed;left:0;right:0;bottom:0;background:#fffffff2;border-top:1px solid var(--borde);padding:10px 14px calc(10px + env(safe-area-inset-bottom));display:flex;gap:10px;z-index:6;backdrop-filter:blur(6px)}
+.pie>div{max-width:640px;margin:0 auto;display:flex;gap:10px;width:100%}
+.btn{flex:1;padding:15px;border:0;border-radius:14px;background:linear-gradient(135deg,var(--azul),#4a3290);color:#fff;font:inherit;font-weight:800;font-size:16px;cursor:pointer}
+.btn.sec{flex:0 0 auto;background:#fff;color:var(--azul);border:1.5px solid var(--borde)}
+.btn:disabled{opacity:.5}
+.btn.oro{background:linear-gradient(135deg,#d8b46a,#f3dfa8);color:var(--noche)}
+.err{color:#c0392b;font-weight:700;margin:8px 0}
+.oculto{display:none!important}
+/* resultado */
+.tabs{display:flex;gap:6px;overflow-x:auto;padding:4px 0 10px;-webkit-overflow-scrolling:touch}
+.tabs::-webkit-scrollbar{display:none}.tabs{scrollbar-width:none}
+.tabs button{flex:none;border:0;border-radius:999px;padding:9px 14px;background:#fff;border:1.5px solid var(--borde);font:inherit;font-weight:700;color:var(--azul)}
+.tabs button.on{background:var(--azul);color:#fff;border-color:var(--azul)}
+.pieza{background:#fff;border:1px solid var(--borde);border-radius:16px;margin:12px 0;overflow:hidden}
+.pieza>summary{list-style:none;padding:14px 16px;cursor:pointer;display:flex;gap:10px;align-items:flex-start}
+.pieza>summary::-webkit-details-marker{display:none}
+.pieza .fmt{flex:none;font-size:12px;font-weight:800;border-radius:8px;padding:4px 8px;background:var(--claro);color:var(--verde2);text-transform:uppercase}
+.pieza .fmt.reel{background:#efe7fa;color:var(--lila)}.pieza .fmt.carrusel{background:#fff4d6;color:#8a6500}.pieza .fmt.historias{background:#e6f0ff;color:#2556a8}
+.pieza .tit{font-weight:800;line-height:1.3}.pieza .tit small{display:block;font-weight:600;color:var(--gris);font-size:13px}
+.pieza .cuerpo{padding:0 16px 16px;border-top:1px dashed var(--borde)}
+.bloque{margin-top:14px}
+.bloque h4{margin:0 0 6px;font-size:13px;text-transform:uppercase;letter-spacing:.04em;color:var(--gris)}
+.copiable{position:relative;background:var(--fondo);border-radius:12px;padding:12px 12px 12px;white-space:pre-wrap;line-height:1.5;font-size:15px}
+.copiar{float:right;margin:-4px -4px 6px 8px;border:0;background:var(--azul);color:#fff;border-radius:8px;padding:6px 10px;font:inherit;font-size:13px;font-weight:700}
+.plano{border-left:3px solid var(--lila);padding:6px 0 6px 10px;margin:8px 0}
+.plano small{color:var(--gris);display:block}
+.porque{background:#fff8e1;border-radius:12px;padding:10px 12px;font-size:14px;margin-top:14px}
+.cargando{text-align:center;padding:40px 10px}
+.orbe{width:72px;height:72px;margin:0 auto 16px;border-radius:50%;background:conic-gradient(var(--azul),var(--lila),var(--oro),var(--azul));animation:g 1.4s linear infinite;mask:radial-gradient(circle,transparent 52%,#000 54%);-webkit-mask:radial-gradient(circle,transparent 52%,#000 54%)}
+@keyframes g{to{transform:rotate(1turn)}}
+.frase{min-height:48px;color:var(--gris)}
+.usos{font-size:13px;color:var(--gris);text-align:center;margin:10px 0}
+.mini{font-size:14px;color:var(--gris)}
+a{color:var(--verde2)}
+</style>
+</head>
+<body>
+<header><div class="av">✨</div><div><b>Tu Community Manager Holística</b><small id="sub">Método Holístico Integral</small></div></header>
+<div class="barra"><i id="prog"></i></div>
+<main id="main"></main>
+<div class="pie" id="pie"><div><button class="btn sec" id="atras">Atrás</button><button class="btn" id="sig">Empezar</button></div></div>
+
+<script>
+/* ====== CONFIG ====== */
+const API = "https://cm-holistica.soporteibooks.workers.dev"; // worker de Cloudflare
+const DEMO = new URLSearchParams(location.search).has("demo");
+const KEY = "cmh-v1";
+
+/* ====== ESTADO ====== */
+let S = JSON.parse(localStorage.getItem(KEY) || "{}");
+S.r = S.r || {}; S.paso = S.paso || 0;
+const guardar = () => localStorage.setItem(KEY, JSON.stringify(S));
+const $ = s => document.querySelector(s);
+const esc = t => String(t ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+/* ====== PREGUNTAS (la app conversa como una community manager) ====== */
+const PASOS = [
+ {id:"hola", t:"¡Hola! Soy tu community manager 💜",
+  p:`<p>Voy a hacerte preguntas como lo haría una community manager de verdad en la primera reunión. Cuanto más me cuentes, más <b>"vos"</b> va a sonar el contenido.</p>
+     <p>Al final te armo el <b>plan del mes completo</b>: qué publicar cada día, los ganchos, los guiones plano por plano, los carruseles placa por placa, los textos, las historias y hasta cómo responder los comentarios.</p>
+     <div class="tip">Tardás unos 10 minutos. Lo que escribas queda guardado en tu celular: si cortás, seguís después.</div>`,
+  campos:[{k:"mail",tipo:"email",l:"Tu mail del aula",d:"El mismo con el que entrás al aula."}]},
+
+ {id:"vos", t:"Primero, vos", p:"<p>Contame quién sos, como si me lo contaras tomando un café.</p>",
+  campos:[
+   {k:"nombre",l:"¿Cómo te llamás o cómo querés que te conozcan?",d:"Ej: Lu Terapeuta, Caro Holística, Martín Reiki, tu nombre real."},
+   {k:"genero",tipo:"uno",l:"¿Cómo querés que hable de vos el contenido?",ops:["En femenino (terapeuta, holística)","En masculino (terapeuta, holístico)","Neutro"]},
+   {k:"pais",l:"¿De qué país y ciudad sos?",d:"Así hablo como se habla ahí."},
+   {k:"trato",tipo:"uno",l:"¿Cómo le hablás a tu gente?",ops:["Vos (Argentina, Uruguay)","Tú","Usted"]},
+   {k:"historia",tipo:"largo",l:"¿Cómo llegaste a las terapias holísticas?",d:"Ese momento que te cambió. No hace falta que sea perfecto: escribilo como te salga."},
+   {k:"distinto",tipo:"largo",l:"¿Qué tenés vos que no tiene otra terapeuta?",d:"Tu forma de atender, tu historia, algo que siempre te dicen."}]},
+
+ {id:"servicios", t:"Lo que ofrecés", p:"<p>Ahora lo que vendés. Esto es lo que el contenido va a llevar a las consultas.</p>",
+  campos:[
+   {k:"servicios",tipo:"varios",l:"¿Qué servicios das?",d:"Marcá todos.",ops:["Péndulo hebreo / limpiezas","Péndulo de cuarzo / preguntas","Biómetros","Chakras","Flores de Bach","Astrología / carta natal","Lenormand / tarot","Reiki / energía","Registros akáshicos","Aromaterapia","Meditación guiada"],otro:true},
+   {k:"estrella",l:"¿Cuál es tu servicio estrella, el que más querés vender?"},
+   {k:"modalidad",tipo:"uno",l:"¿Atendés online, presencial o las dos?",ops:["Online","Presencial","Las dos"]},
+   {k:"precio",l:"¿Cuánto cobrás la sesión más o menos?",d:"Opcional. Me sirve para saber a quién le hablamos."},
+   {k:"contacto",tipo:"uno",l:"¿Por dónde te escriben para reservar?",ops:["WhatsApp","Mensaje directo","Link de reservas","Todavía no tengo"]}]},
+
+ {id:"clienta", t:"Tu cliente ideal", p:"<p>El contenido viral le habla a <b>una</b> persona. Pensá en tu mejor cliente.</p>",
+  campos:[
+   {k:"quien",tipo:"largo",l:"¿Quién es?",d:"Edad, a qué se dedica, cómo vive. Ej: mujer de 40-55, trabaja mucho, cuida a todos menos a sí misma."},
+   {k:"dolor",tipo:"largo",l:"¿Qué le pasa cuando llega a vos?",d:"Con las palabras que usa esa persona: \"siento que tengo una mochila\", \"todo me sale mal\"."},
+   {k:"deseo",tipo:"largo",l:"¿Qué quiere sentir después de tu sesión?"},
+   {k:"miedo",tipo:"largo",l:"¿Qué le da miedo o vergüenza antes de reservar?",d:"Ej: que sea caro, que no funcione, qué va a pensar su familia."},
+   {k:"caso",tipo:"largo",l:"Contame un caso real que te emocionó (sin nombres)",d:"Opcional, pero es oro para el contenido."}]},
+
+ {id:"personalidad", t:"Tu personalidad en redes", p:"<p>Esto es lo que hace que el contenido sea <b>tuyo</b> y no uno más.</p>",
+  campos:[
+   {k:"tono",tipo:"varios",l:"¿Cómo querés sonar?",d:"Elegí hasta 3.",max:3,ops:["Dulce y contenedora","Divertida y con humor","Mística y profunda","Directa y sin vueltas","Maternal","Elegante y premium","Rebelde / rompe mitos","Didáctica, explico todo"]},
+   {k:"palabras",l:"Palabras o frases que usás siempre",d:"Ej: \"mi alma linda\", \"soltá\", \"energía\". Opcional."},
+   {k:"nunca",l:"¿Qué NO querés parecer jamás?",d:"Ej: vendedora, bruja de película, gurú que lo sabe todo."},
+   {k:"temas",tipo:"largo",l:"Temas de los que te encanta hablar",d:"Hasta lo que no es tu trabajo: tus plantas, tu perro, la luna, tu mate. Eso humaniza."}]},
+
+ {id:"objetivo", t:"¿Qué querés lograr este mes?", p:"<p>Cada objetivo pide un contenido distinto. Te cuento para qué sirve cada uno. Podés elegir <b>hasta 2</b>.</p>",
+  campos:[{k:"objetivo",tipo:"tarjetas",max:2,ops:[
+   ["Interacción general","Que el algoritmo te muestre a más gente. Es la base: sin interacción, nadie te ve."],
+   ["Comentarios","Es la señal más fuerte para Instagram y abre conversaciones que terminan en consultas. Se logra con preguntas, opiniones y \"comentá X y te lo mando\"."],
+   ["Guardados","Le dice a Instagram \"esto vale la pena\" y te sigue mostrando por semanas. Se logra con guías, listas y rituales para hacer después."],
+   ["Compartidos","La forma más rápida de llegar a gente que no te conoce. Se logra con contenido con el que se identifican: \"mandáselo a tu amiga que...\"."],
+   ["Seguidores nuevos","Crecer la comunidad. Se logra con series (parte 1, 2, 3) y con contenido que da ganas de ver más."],
+   ["Consultas y ventas","Convertir a quienes ya te siguen en clientes. Se logra con casos, detrás de escena, historias y llamados claros."]]}]},
+
+ {id:"formato", t:"¿Cómo te gusta crear?", p:"<p>No hay una forma correcta: hay la que vos vas a sostener.</p>",
+  campos:[
+   {k:"cara",tipo:"tarjetas",max:1,ops:[
+    ["Con mi cara, hablando a cámara","Genera confianza más rápido: la gente le compra a personas. Ideal si te sentís a gusto frente a la cámara."],
+    ["Sin mi cara (voz en off + b-roll)","Tus manos, el péndulo, velas, la naturaleza, con tu voz o con texto. Funciona muy bien y es más fácil de grabar."],
+    ["Mezcla de las dos","Lo mejor de los dos mundos: algunos días a cámara y otros sin cara."]]},
+   {k:"formatos",tipo:"tarjetas",max:4,l:"¿Qué formatos querés más?",ops:[
+    ["Reels","Los que más alcance traen. Llegan a gente nueva."],
+    ["Carruseles","Los reyes de los guardados y del tiempo de lectura. Educan y posicionan."],
+    ["Imágenes únicas","Rápidas de hacer. Ideales para frases, preguntas y anuncios."],
+    ["Historias","Donde se venden las consultas: cercanía con las que ya te siguen."]]},
+   {k:"frecuencia",tipo:"uno",l:"¿Cuántas publicaciones por semana podés sostener?",d:"Mejor pocas y constantes que muchas y abandonar.",ops:["2","3","4","5","7"]},
+   {k:"redes",tipo:"varios",l:"¿Dónde vas a publicar?",ops:["Instagram","TikTok","Facebook"]},
+   {k:"tiempo",tipo:"uno",l:"¿Cuánto tiempo por semana le podés dedicar?",ops:["Menos de 1 hora","1 a 3 horas","3 a 5 horas","Más de 5 horas"]}]},
+
+ {id:"recursos", t:"Lo que tenés a mano", p:"<p>Así armo guiones que puedas grabar <b>hoy</b> con lo que tenés.</p>",
+  campos:[
+   {k:"tengo",tipo:"varios",l:"¿Qué tenés para grabar o fotografiar?",ops:["Mi consultorio / rincón de trabajo","Péndulos","Cristales","Velas e inciensos","Cartas","Plantas / naturaleza","Fotos mías","Capturas de mensajes de clientas","Solo mi celular"]},
+   {k:"seguidores",tipo:"uno",l:"¿Cuántos seguidores tenés hoy?",ops:["Estoy empezando (menos de 500)","500 a 2.000","2.000 a 10.000","Más de 10.000"]},
+   {k:"funciono",tipo:"largo",l:"¿Qué publicación tuya funcionó mejor y cuál no?",d:"Opcional. Si no sabés, dejalo vacío."},
+   {k:"fechas",tipo:"largo",l:"¿Hay algo especial este mes?",d:"Una promo, un taller, una fecha (luna llena, cambio de estación), tu cumpleaños."}]}
+];
+
+/* ====== RENDER DEL CUESTIONARIO ====== */
+function campoHTML(c){
+ const v = S.r[c.k];
+ const lab = c.l ? `<label class="q">${c.l}${c.d?`<span>${c.d}</span>`:""}</label>` : "";
+ if(c.tipo==="largo") return lab+`<textarea data-k="${c.k}">${esc(v)}</textarea>`;
+ if(c.tipo==="uno"||c.tipo==="varios"){
+  const sel = [].concat(v||[]);
+  let h = lab+`<div class="chips" data-k="${c.k}" data-t="${c.tipo}" data-max="${c.max||99}">`+c.ops.map(o=>`<button type="button" class="chip ${sel.includes(o)?"on":""}">${o}</button>`).join("")+`</div>`;
+  if(c.otro) h+=`<input type="text" data-k="${c.k}_otro" placeholder="Otro (escribilo)" value="${esc(S.r[c.k+"_otro"])}" style="margin-top:8px">`;
+  return h;
+ }
+ if(c.tipo==="tarjetas"){
+  const sel=[].concat(v||[]);
+  return lab+`<div data-k="${c.k}" data-t="tarjetas" data-max="${c.max||1}">`+c.ops.map(([a,b])=>`<button type="button" class="card-op ${sel.includes(a)?"on":""}" data-v="${a}"><b>${a}</b><small>${b}</small></button>`).join("")+`</div>`;
+ }
+ return lab+`<input type="${c.tipo||"text"}" data-k="${c.k}" value="${esc(v)}">`;
+}
+function pintarPaso(){
+ const P = PASOS[S.paso];
+ $("#prog").style.width = (S.paso/PASOS.length*100)+"%";
+ $("#main").innerHTML = `<div class="burbuja"><h2>${P.t}</h2>${P.p}</div>`+P.campos.map(campoHTML).join("")+`<div class="err" id="err"></div>`;
+ $("#atras").classList.toggle("oculto", S.paso===0);
+ $("#sig").textContent = S.paso===0 ? "Empezar" : S.paso===PASOS.length-1 ? "Armar mi plan ✨" : "Siguiente";
+ $("#sig").disabled=false; $("#sig").onclick = siguiente; $("#atras").onclick=()=>{leer();S.paso--;guardar();pintarPaso();scrollTo(0,0)};
+ document.querySelectorAll("[data-t]").forEach(g=>{
+  g.addEventListener("click",e=>{
+   const b=e.target.closest("button"); if(!b) return;
+   const t=g.dataset.t, max=+g.dataset.max;
+   if(t==="uno"){g.querySelectorAll("button").forEach(x=>x.classList.remove("on"));b.classList.add("on");}
+   else{ if(!b.classList.contains("on") && g.querySelectorAll(".on").length>=max){ if(max===1){g.querySelectorAll(".on").forEach(x=>x.classList.remove("on"))} else return;} b.classList.toggle("on");}
+   leer(); guardar();
+  });
+ });
+ document.querySelectorAll("input[data-k],textarea[data-k]").forEach(i=>i.addEventListener("input",()=>{leer();guardar()}));
+}
+function leer(){
+ document.querySelectorAll("input[data-k],textarea[data-k]").forEach(i=>S.r[i.dataset.k]=i.value.trim());
+ document.querySelectorAll("[data-t]").forEach(g=>{
+  const on=[...g.querySelectorAll(".on")].map(b=>b.dataset.v||b.textContent);
+  S.r[g.dataset.k] = g.dataset.t==="uno" ? (on[0]||"") : on;
+ });
+}
+function siguiente(){
+ leer(); guardar();
+ const P=PASOS[S.paso];
+ if(P.id==="hola" && !/^[^@\s]+@[^@\s]+\.\w+$/.test(S.r.mail||"")) return $("#err").textContent="Poné el mail con el que entrás al aula para seguir.";
+ if(P.id==="vos" && !S.r.nombre) return $("#err").textContent="Contame al menos cómo te llamás.";
+ if(P.id==="servicios" && !(S.r.servicios||[]).length && !S.r.servicios_otro) return $("#err").textContent="Marcá al menos un servicio.";
+ if(P.id==="objetivo" && !(S.r.objetivo||[]).length) return $("#err").textContent="Elegí al menos un objetivo.";
+ if(P.id==="formato" && (!(S.r.cara||[]).length || !(S.r.formatos||[]).length)) return $("#err").textContent="Elegí cómo querés crear y al menos un formato.";
+ if(S.paso<PASOS.length-1){S.paso++;guardar();pintarPaso();scrollTo(0,0);return}
+ generar(1);
+}
+
+/* ====== GENERACIÓN ====== */
+const FRASES=["Leyendo tu historia…","Buscando lo que te hace distinto de los demás…","Pensando como tu cliente ideal…","Escribiendo ganchos que frenan el dedo…","Armando los guiones plano por plano…","Diseñando tus carruseles…","Puliendo los textos para que suenen a vos…"];
+async function generar(semana, pieza){
+ $("#pie").classList.add("oculto"); $("#prog").style.width="100%";
+ $("#main").innerHTML=`<div class="cargando"><div class="orbe"></div><h2 style="font-family:'Cormorant Garamond',serif">Creando tu contenido</h2><p class="frase" id="fr">${FRASES[0]}</p><p class="mini">Puede tardar hasta 1 minuto. No cierres la app.</p></div>`;
+ let i=0; const iv=setInterval(()=>{const f=$("#fr"); if(f) f.textContent=FRASES[++i%FRASES.length]},3500);
+ try{
+  let data;
+  if(DEMO){ await new Promise(r=>setTimeout(r,1500)); data=demoData(semana); }
+  else{
+   const prev = S.plan ? {estrategia:S.plan.estrategia, titulos:Object.values(S.plan.semanas||{}).flatMap(s=>s.piezas.map(p=>p.titulo))} : null;
+   const res = await fetch(API+"/generar",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({mail:S.r.mail,perfil:S.r,semana,previo:prev,pieza})});
+   data = await res.json();
+   if(!res.ok) throw new Error(data.error||"No pude generar. Probá de nuevo en un ratito.");
+  }
+  S.usos = data.usos_restantes;
+  if(pieza){ const sem=S.plan.semanas[semana]; sem.piezas[pieza.i]=data.pieza; }
+  else{
+   S.plan = S.plan && semana>1 ? S.plan : {semanas:{}};
+   if(data.estrategia) S.plan.estrategia=data.estrategia;
+   S.plan.semanas[semana]=data.semana;
+  }
+  S.ver = pieza ? S.ver : (semana==1?"est":String(semana)); guardar(); pintarPlan();
+ }catch(e){
+  $("#main").innerHTML=`<div class="burbuja"><h2>Uy, algo falló</h2><p>${esc(e.message)}</p></div>`;
+  $("#pie").classList.remove("oculto"); $("#atras").classList.add("oculto");
+  $("#sig").textContent= S.plan ? "Volver a mi plan" : "Reintentar"; $("#sig").onclick=()=>S.plan?pintarPlan():generar(semana,pieza);
+ }finally{clearInterval(iv)}
+}
+
+/* ====== RENDER DEL PLAN ====== */
+const cp = (t)=>`<div class="copiable"><button class="copiar" data-c="${esc(t)}">Copiar</button>${esc(t)}</div>`;
+function piezaHTML(p,i,sem){
+ const f=(p.formato||"").toLowerCase();
+ let h=`<details class="pieza"><summary><span class="fmt ${f}">${esc(p.formato)}</span><span class="tit">${esc(p.dia)} · ${esc(p.titulo)}<small>Objetivo: ${esc(p.objetivo)} · ${esc(p.horario||"")}</small></span></summary><div class="cuerpo">`;
+ if(p.ganchos?.length) h+=`<div class="bloque"><h4>Ganchos (elegí uno)</h4>${p.ganchos.map(cp).join("<div style='height:6px'></div>")}</div>`;
+ if(p.guion?.length) h+=`<div class="bloque"><h4>Guion plano por plano</h4>${p.guion.map((g,n)=>`<div class="plano"><small>Plano ${n+1} · ${esc(g.duracion||"")} — ${esc(g.plano)}</small>${g.voz?`<div>🎙️ ${esc(g.voz)}</div>`:""}${g.texto_pantalla?`<div>🔤 <b>${esc(g.texto_pantalla)}</b></div>`:""}</div>`).join("")}${p.audio?`<p class="mini">🎵 ${esc(p.audio)}</p>`:""}</div>`;
+ if(p.slides?.length) h+=`<div class="bloque"><h4>Carrusel placa por placa</h4>${p.slides.map((s,n)=>`<div class="plano"><small>Placa ${n+1} — ${esc(s.visual)}</small><div><b>${esc(s.texto)}</b></div></div>`).join("")}</div>`;
+ if(p.imagen) h+=`<div class="bloque"><h4>La imagen</h4><div class="plano"><small>${esc(p.imagen.visual)}</small><div><b>${esc(p.imagen.texto)}</b></div></div></div>`;
+ if(p.secuencia?.length) h+=`<div class="bloque"><h4>Secuencia de historias</h4>${p.secuencia.map((s,n)=>`<div class="plano"><small>Historia ${n+1}</small>${esc(s)}</div>`).join("")}</div>`;
+ if(p.caption) h+=`<div class="bloque"><h4>Texto de la publicación</h4>${cp(p.caption+(p.hashtags?.length?"\n\n"+p.hashtags.join(" "):""))}</div>`;
+ if(p.como_grabar) h+=`<div class="bloque"><h4>Cómo grabarlo fácil</h4><p style="margin:0">${esc(p.como_grabar)}</p></div>`;
+ if(p.por_que_funciona) h+=`<div class="porque">💡 <b>Por qué va a funcionar:</b> ${esc(p.por_que_funciona)}</div>`;
+ h+=`<button class="btn sec" style="width:100%;margin-top:12px" data-otra="${sem}|${i}">🔄 Dame otra versión de esta</button></div></details>`;
+ return h;
+}
+function pintarPlan(){
+ const P=S.plan, E=P.estrategia||{}, sems=Object.keys(P.semanas).sort();
+ const ver=S.ver||"est";
+ $("#sub").textContent="El plan de "+(S.r.nombre||"tu mes");
+ let tabs=`<div class="tabs"><button data-v="est" class="${ver==="est"?"on":""}">Estrategia</button>`+[1,2,3,4].map(n=>`<button data-v="${n}" class="${ver==n?"on":""}">Semana ${n}${P.semanas[n]?"":" 🔒"}</button>`).join("")+`<button data-v="perfil">Mis datos</button></div>`;
+ let c="";
+ if(ver==="est"){
+  c=`<div class="burbuja"><h2>Tu estrategia del mes</h2><p>${esc(E.resumen)}</p></div>`;
+  if(E.pilares?.length) c+=`<div class="bloque"><h4>Tus pilares de contenido</h4>${E.pilares.map(p=>`<div class="plano"><b>${esc(p.nombre)}</b><small>${esc(p.para_que)}</small></div>`).join("")}</div>`;
+  if(E.bio) c+=`<div class="bloque"><h4>Tu bio nueva</h4>${cp(E.bio)}</div>`;
+  if(E.destacadas?.length) c+=`<div class="bloque"><h4>Historias destacadas</h4><p>${E.destacadas.map(esc).join(" · ")}</p></div>`;
+  if(E.respuestas_comentarios?.length) c+=`<div class="bloque"><h4>Cómo responder comentarios para que lleguen a consulta</h4>${E.respuestas_comentarios.map(cp).join("<div style='height:6px'></div>")}</div>`;
+  if(E.mensaje_privado) c+=`<div class="bloque"><h4>Mensaje para las que te escriben</h4>${cp(E.mensaje_privado)}</div>`;
+  if(E.metricas) c+=`<div class="tip"><b>Qué mirar al final de cada semana:</b> ${esc(E.metricas)}</div>`;
+ } else if(ver==="perfil"){
+  c=`<div class="burbuja"><h2>Tus datos</h2><p>Si cambiás algo, las próximas semanas salen con lo nuevo.</p></div><button class="btn" style="width:100%" id="editar">Editar mis respuestas</button>`;
+ } else if(P.semanas[ver]){
+  const s=P.semanas[ver];
+  c=`<div class="burbuja"><h2>${/^semana/i.test(s.foco||"")?esc(s.foco):"Semana "+ver+": "+esc(s.foco)}</h2><p class="mini">Tocá cada publicación para abrirla.</p></div>`+s.piezas.map((p,i)=>piezaHTML(p,i,ver)).join("");
+ } else {
+  c=`<div class="burbuja"><h2>Semana ${ver}</h2><p>Cuando termines la anterior (o cuando quieras), la armo. Uso las ideas que ya te di para no repetirme.</p></div><button class="btn oro" style="width:100%" id="gen" data-s="${ver}">Armar la semana ${ver} ✨</button>`;
+ }
+ $("#main").innerHTML=tabs+c+(S.usos!=null?`<p class="usos">Te quedan ${S.usos} creaciones este mes.</p>`:"");
+ $("#main").querySelectorAll(".tabs button").forEach(b=>b.onclick=()=>{S.ver=b.dataset.v;guardar();pintarPlan();scrollTo(0,0)});
+ $("#main").querySelectorAll(".copiar").forEach(b=>b.onclick=()=>{navigator.clipboard.writeText(b.dataset.c).then(()=>{b.textContent="¡Copiado!";setTimeout(()=>b.textContent="Copiar",1500)})});
+ $("#main").querySelectorAll("[data-otra]").forEach(b=>b.onclick=()=>{const[s,i]=b.dataset.otra.split("|");generar(s,{i:+i,actual:S.plan.semanas[s].piezas[i]})});
+ const g=$("#gen"); if(g) g.onclick=()=>generar(+g.dataset.s);
+ const ed=$("#editar"); if(ed) ed.onclick=()=>{S.paso=1;guardar();$("#pie").classList.remove("oculto");pintarPaso()};
+ $("#pie").classList.add("oculto");
+}
+
+/* ====== DEMO (para probar la pantalla sin gastar) ====== */
+function demoData(n){return {usos_restantes:29,estrategia:{resumen:"Este mes te posicionamos como la terapeuta que explica lo invisible sin vueltas. Reels sin cara para llegar a gente nueva, carruseles para guardados e historias para cerrar consultas.",pilares:[{nombre:"Lo que nadie te explica",para_que:"Guardados y autoridad"},{nombre:"Casos que sanan",para_que:"Confianza y consultas"}],bio:"Terapeuta holística 🌙\nTe ayudo a soltar lo que cargás sin darte cuenta\nPéndulo hebreo · Biómetros\n👇 Escribime LIMPIEZA",destacadas:["Empezá acá","Casos","Consultas"],respuestas_comentarios:["¡Gracias por animarte a contarlo! 💜 Te mando un mensajito por privado."],mensaje_privado:"¡Hola! Vi tu comentario 💜 ...",metricas:"Guardados y comentarios por publicación."},
+ semana:{foco:"Que te conozcan",piezas:[{dia:"Lunes",formato:"Reel",titulo:"3 señales de que cargás energía ajena",objetivo:"Guardados",horario:"20:00",ganchos:["Si te pasa esto a la noche, no es cansancio","Nadie te lo dijo, pero esto no es tuyo"],guion:[{plano:"Manos sosteniendo el péndulo frente a una vela",duracion:"0-2 s",voz:"Si te pasa esto a la noche, no es cansancio.",texto_pantalla:"No es cansancio"}],audio:"Música suave, volumen bajo",caption:"¿Te pasa? Guardalo para tu próxima noche pesada 🌙",hashtags:["#terapiaholistica"],como_grabar:"Celular apoyado en un vaso, luz de ventana.",por_que_funciona:"Nombra un síntoma que ella vive y abre la curiosidad."},
+ {dia:"Miércoles",formato:"Carrusel",titulo:"Guía de limpieza en 5 pasos",objetivo:"Guardados",horario:"19:00",slides:[{texto:"Hacé esto antes de dormir",visual:"Foto de vela y péndulo"}],caption:"Guardalo 💾",hashtags:[],por_que_funciona:"Es una guía para volver a ver."}]}}}
+
+/* ====== ARRANQUE ====== */
+if(DEMO && location.hash==="#plan"){const d=demoData(1);S={r:{nombre:"Lu"},paso:0,usos:29,plan:{estrategia:d.estrategia,semanas:{1:d.semana}},ver:"1"};pintarPlan()}
+else if(S.plan){pintarPlan()} else pintarPaso();
+</script>
+</body>
+</html>
