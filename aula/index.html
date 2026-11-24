@@ -30,6 +30,7 @@ input{width:100%;padding:13px;border:1.5px solid #d9cdee;border-radius:10px;font
 #app .bar{background:var(--azul);color:#fff;padding:10px 14px;display:flex;justify-content:space-between;align-items:center}
 #app iframe{flex:1;border:0;width:100%}
 .hola{background:var(--claro);border-radius:12px;padding:14px;margin-bottom:6px}
+.ses{background:#fff;border-radius:14px;padding:16px;margin:10px 0;box-shadow:0 1px 6px rgba(58,24,104,.09);border-top:4px solid var(--oro)}.ses h3{margin:0 0 4px;font-family:"Baloo 2";color:var(--azul)}.ses .d{font-size:14px;color:#4b5563;margin:6px 0 10px;line-height:1.45}.ses .pr{font-weight:700;color:var(--verde2);margin:4px 0 10px}.ses a{display:block;text-align:center;background:var(--azul);color:#fff;text-decoration:none;font-weight:700;border-radius:10px;padding:11px;margin-top:7px}.ses a.mp{background:#009ee3}.sesint{background:var(--claro);border-radius:12px;padding:14px;font-size:15px;line-height:1.5}
 .lock{background:#fff;border:2px dashed #d9cdee;border-radius:14px;padding:16px;margin:10px 0;position:relative}
 .lock .t{font-weight:700;opacity:.75;padding-right:78px}
 .lock .s{font-size:14px;color:#6b7280;margin:4px 0 10px}
@@ -89,6 +90,7 @@ function mostrar(niveles,tengo){
       if(it.tipo==="clases"){
         it.videos.forEach(v=>A.insertAdjacentHTML("beforeend",`<a class="it" data-i="${ITEMS.push({sec,titulo:v.titulo,tipo:'clase'})-1}" target="_blank" href="https://www.youtube.com/watch?v=${v.id}"><span class="ic">▶️</span><span class="t">${v.titulo}<div class="s">Abre en YouTube con la cuenta de Google de tu mail de compra</div></span></a>`));
         return}
+      if(it.tipo==="reserva"){A.insertAdjacentHTML("beforeend",`<div class="sesint">${it.intro}</div>`+it.opciones.map(o=>{const n=ITEMS.push({sec,titulo:o.nombre,tipo:'sesion'})-1;return `<div class="ses"><h3>${o.nombre}</h3><div class="d">${o.desc}</div>${o.usd?`<a data-i="${n}" href="${o.usd[1]}" target="_blank">Reservar · ${o.usd[0]} con tarjeta</a>`:""}${o.eur?`<a data-i="${n}" href="${o.eur[1]}" target="_blank" style="background:var(--verde)">Reservar · ${o.eur[0]} (Europa)</a>`:""}${o.ars?`<a class="mp" data-i="${n}" href="${o.ars[1]}" target="_blank">Reservar · ${o.ars[0]} con Mercado Pago</a>`:""}</div>`}).join("")+(it.nota?`<div class="sesint" style="margin-top:10px">${it.nota}</div>`:""));return}
       if(it.tipo==="link"){A.insertAdjacentHTML("beforeend",`<a class="it" data-i="${ITEMS.push(it)-1}" target="_blank" href="${it.url}"><span class="ic">${ICON.link}</span><span class="t">${it.titulo}</span></a>`);return}
       const d=document.createElement("div");d.className="it";
       d.innerHTML=`<span class="ic">${ICON[it.tipo]}</span><span class="t">${it.titulo}<div class="s">${it.tipo==="pdf"?"Tocá para abrir o descargar":it.tipo==="app"?"Tocá para abrir la app":"Tocá para escuchar"}</div></span>`;
