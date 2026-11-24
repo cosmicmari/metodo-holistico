@@ -5,163 +5,163 @@
   "1f409a2d6807566632900f6c3f68c5a96abf1cba32890597ef14719bc8d2039a": {
    "iman": {
     "w": "4535ac6cca6669c62b74762bfa90076af49c77c91730e5c811bfcf6e9b19eef4",
-    "iv": "a4f90bc19c75dd55ea53a266ac5bc70b"
+    "iv": "c7f5d2d6646e2ec6d0d88684561836c1"
    },
    "base": {
     "w": "f803535176acfa6e67b7ee163a25499a812ab2db030d5a50057a8985a4cb132b",
-    "iv": "0ac7a3c8ecc9ab29ae7f4accfa4c2aca"
+    "iv": "5f67342f8595c620f0e5de6163ba6f56"
    },
    "kit": {
     "w": "a925bf6e2a29e274c8e59802ec42fdea68d4fddf3057fa9004549632b26f80d1",
-    "iv": "0a325c3cd26ca26d5ce64d4783ecf344"
+    "iv": "7d4c3bf4aea7cd466bc97251b8dbd0d6"
    },
    "nivel2": {
     "w": "7fff93cf5bc2e3965a3214a8f1ff70f39339d820e7a90cdbd626ebc2c5bb29a9",
-    "iv": "09c4c30ad1dad50faf0f5fb8f12c8833"
+    "iv": "5811a883915a7348b716481e72a9b0e0"
    }
   },
   "cd329a4ab91e98194d2773ea03a6d7f90619638d935087304c8f14e1d85e7967": {
    "base": {
     "w": "b718138105dd3ed4a95f705a33b51aecf8ce6efd8b5026c629f9481096e39232",
-    "iv": "0ac7a3c8ecc9ab29ae7f4accfa4c2aca"
+    "iv": "5f67342f8595c620f0e5de6163ba6f56"
    },
    "kit": {
     "w": "15c1d93d64abd84d21d60ba419987d7d305dfc8b5ced9194a9befc65b5cf7fd2",
-    "iv": "0a325c3cd26ca26d5ce64d4783ecf344"
+    "iv": "7d4c3bf4aea7cd466bc97251b8dbd0d6"
    }
   },
   "6b30aefbc0de268b14711a9eade4b50cb4493341929455ce73bad4ae634c8a2a": {
    "base": {
     "w": "1dd351e59de9f16f38b8677c1d87a896b674c62efae907efe4bdbc91533ba7ac",
-    "iv": "0ac7a3c8ecc9ab29ae7f4accfa4c2aca"
+    "iv": "5f67342f8595c620f0e5de6163ba6f56"
    }
   },
   "e523d0f60e63cf79bc3d25efd9e555c46d7e44062c9efd365125fadc88ad36ed": {
    "base": {
     "w": "3bcb98f69224039f2074dbfc68bc9ccbcb56aed096fd0ad5bff475bf23d0cef5",
-    "iv": "0ac7a3c8ecc9ab29ae7f4accfa4c2aca"
+    "iv": "5f67342f8595c620f0e5de6163ba6f56"
    }
   },
   "6c3dc37c34066c08817be0bd6c668e731e512bc02d6a1e41a6284e416c4fcb68": {
    "base": {
     "w": "66b3cc1146d49b084abe0a654aa882a66095281cffb57c348e8aa6c2440aa101",
-    "iv": "0ac7a3c8ecc9ab29ae7f4accfa4c2aca"
+    "iv": "5f67342f8595c620f0e5de6163ba6f56"
    }
   },
   "00972f5acd3eb0058e75a1c96261e09e86df726cb62cb915acecadd1650b5e6a": {
    "base": {
     "w": "d663be7af802531d4be5ce26a26597a8dcab3cd723b64c3378336644d87cd773",
-    "iv": "0ac7a3c8ecc9ab29ae7f4accfa4c2aca"
+    "iv": "5f67342f8595c620f0e5de6163ba6f56"
    }
   },
   "da10a3c039bad84b14776219f5a430b5778f341e5dd5264dcccae9e4960aefa6": {
    "base": {
     "w": "1664abb152db98df01f6bcf1ea3e51899150e0265113643827e2895c180e6be6",
-    "iv": "0ac7a3c8ecc9ab29ae7f4accfa4c2aca"
+    "iv": "5f67342f8595c620f0e5de6163ba6f56"
    }
   },
   "540479418c8de089f4e37290691237d82de02fcde5e72fbebb4be403953c4648": {
    "base": {
     "w": "ff58c0c3852689a53b801b94c58aa49089a653d1fa64741afad961fdaddbc06e",
-    "iv": "0ac7a3c8ecc9ab29ae7f4accfa4c2aca"
+    "iv": "5f67342f8595c620f0e5de6163ba6f56"
    },
    "redes": {
     "w": "8c67b6f562c49d24b641c62609bb90a315ce968ffeb110c341c86361a0e76afd",
-    "iv": "0159ec0cbcccf55ca9624ce57d9dc8de"
+    "iv": "6809cc2d8bf50f7fb60d1233b7a113a1"
    }
   },
   "47096dc0027b1b0bea2932b67a3cadadabd5f8ac2c554d56f0c9928fd730a6f4": {
    "base": {
     "w": "505ecb9c87bebabdad631c988efe92313b18a929be8b407426ab63b4c694445e",
-    "iv": "0ac7a3c8ecc9ab29ae7f4accfa4c2aca"
+    "iv": "5f67342f8595c620f0e5de6163ba6f56"
    }
   },
   "5ac5e1c5535f080b3cb2fb0064d2a2a539e563124290d16d63f89b64840244c5": {
    "base": {
     "w": "315bec5b1c334f1b980c70078074f4026fcff205429f5f6fb6112fd70ee95995",
-    "iv": "0ac7a3c8ecc9ab29ae7f4accfa4c2aca"
+    "iv": "5f67342f8595c620f0e5de6163ba6f56"
    },
    "nivel2": {
     "w": "48562601673a40b7cbb9d64dc1d81c75c0b76a7a46ec712898e4728c8644d640",
-    "iv": "09c4c30ad1dad50faf0f5fb8f12c8833"
+    "iv": "5811a883915a7348b716481e72a9b0e0"
    }
   },
   "8787a43b741485ae270d3711bdd2021aae7aef1635a47cccb506ffca878a5b4f": {
    "base": {
     "w": "43017e69ed8e62b7252aa4b7b47c6dfc36abde3fec5042ceca0719eb84e95767",
-    "iv": "0ac7a3c8ecc9ab29ae7f4accfa4c2aca"
+    "iv": "5f67342f8595c620f0e5de6163ba6f56"
    }
   },
   "9eccb5e0ed70ba1897d10fcbdbee532e96320ea3a2fe56a8e4f5e85ba7fc2d9e": {
    "base": {
     "w": "a607aa322d99370331ad770b348c073cbafdaff2cb92251767ca010908919871",
-    "iv": "0ac7a3c8ecc9ab29ae7f4accfa4c2aca"
+    "iv": "5f67342f8595c620f0e5de6163ba6f56"
    },
    "nivel2": {
     "w": "fa2dce0cba0c7a2316a18d2e0ecbe674e0fa4c6203c73c509f695e37176433b2",
-    "iv": "09c4c30ad1dad50faf0f5fb8f12c8833"
+    "iv": "5811a883915a7348b716481e72a9b0e0"
    }
   },
   "51ed1e7cade6ad999fe452791e666f7527ba114b448f0d8a5b9cacc15881b95b": {
    "base": {
     "w": "489174e15e3ce9816cb90de4ac0ef56ed591c068a602583d77316877e5062bc2",
-    "iv": "0ac7a3c8ecc9ab29ae7f4accfa4c2aca"
+    "iv": "5f67342f8595c620f0e5de6163ba6f56"
    }
   },
   "b0cd921b1895185dbdb56f51922a3af8a2cab106873f739b8134781e1e7866d8": {
    "base": {
     "w": "707daa1dea00a4d3006baaeb3c1ccfe1570bed7d7f1db02b99b47173bef346b8",
-    "iv": "0ac7a3c8ecc9ab29ae7f4accfa4c2aca"
+    "iv": "5f67342f8595c620f0e5de6163ba6f56"
    }
   },
   "9a5bfacfe114dc134336fca7c60fe719996f4b1b7cba7ff13e12a787a9f1e70d": {
    "base": {
     "w": "37241b61af42bc289957b0059284d3ed19fc54cb544900ca1512ea642eac67ca",
-    "iv": "0ac7a3c8ecc9ab29ae7f4accfa4c2aca"
+    "iv": "5f67342f8595c620f0e5de6163ba6f56"
    },
    "iman": {
     "w": "29e1c6b1db1121cfc36a8378c7fdaebf60f1280c87e71c0094327c8441686471",
-    "iv": "a4f90bc19c75dd55ea53a266ac5bc70b"
+    "iv": "c7f5d2d6646e2ec6d0d88684561836c1"
    },
    "kit": {
     "w": "d729da593d41957aeac53baf75722d721c52aed9fd88ffc1ab1a6273b2b44986",
-    "iv": "0a325c3cd26ca26d5ce64d4783ecf344"
+    "iv": "7d4c3bf4aea7cd466bc97251b8dbd0d6"
    }
   },
   "a156f4acbaa1887d0854f40a2328c37164758e4fd8a2daedf0e5e0735e3d8caf": {
    "base": {
     "w": "b38b468045909d7ba5d33679fdeef5512444032e95db38ba5b27e04dee0a2c22",
-    "iv": "0ac7a3c8ecc9ab29ae7f4accfa4c2aca"
+    "iv": "5f67342f8595c620f0e5de6163ba6f56"
    }
   },
   "4e590d70ce37f05a3a828f4d310fc44cdd8721696dad150ada0c67a0561fa4c9": {
    "base": {
     "w": "7e0b88959cb04b272036b6c20586e8e7b107b4fc7e06e0d133c8e85026e6d45a",
-    "iv": "0ac7a3c8ecc9ab29ae7f4accfa4c2aca"
+    "iv": "5f67342f8595c620f0e5de6163ba6f56"
    }
   },
   "d15e91a6775c9d8b0feffb095f20b2804b3172d11cce158140b0f849d7a1b0ba": {
    "base": {
     "w": "b47f8e8c3590b48129daeff5ab43f325f8e5ecb84156e95d6f35571fb104ca22",
-    "iv": "0ac7a3c8ecc9ab29ae7f4accfa4c2aca"
+    "iv": "5f67342f8595c620f0e5de6163ba6f56"
    }
   },
   "5d3a99044d3407340c9a41d686626d1c0525c33e00ce1091962d0657e8d7b1a9": {
    "base": {
     "w": "954f32c5aee0f52c1fb9ab9f31f5ebd06306ecef3b3a0c1c00e44a09318c3b38",
-    "iv": "0ac7a3c8ecc9ab29ae7f4accfa4c2aca"
+    "iv": "5f67342f8595c620f0e5de6163ba6f56"
    }
   },
   "3632cf8e89a1ca5fdf8ecf08041aa4fc3ecab795af018e1923caebb191d03e70": {
    "base": {
     "w": "5df9ac7ea05843ab77fd31f6e9306c7781831e4a436d79ad6a785d72ba454133",
-    "iv": "0ac7a3c8ecc9ab29ae7f4accfa4c2aca"
+    "iv": "5f67342f8595c620f0e5de6163ba6f56"
    }
   },
   "c8b4b6c55980ff80f4419202d9f8d3fa8e3698ccf81b693cba57f47626e8510c": {
    "base": {
     "w": "aebd529abc87490acf3322a89924004a1129e7d6a9862dd10678e687788b3fd9",
-    "iv": "0ac7a3c8ecc9ab29ae7f4accfa4c2aca"
+    "iv": "5f67342f8595c620f0e5de6163ba6f56"
    }
   }
  },
@@ -184,7 +184,7 @@
    "desc": "Cómo hacer que tus redes te traigan consultantes.",
    "link": "https://whop.com/checkout/plan_Pe8TmvOWHpIik/",
    "precio2": "AR$ 17.990",
-   "link2": "https://mpago.la/1VPH18Q"
+   "link2": "https://mpago.li/1JZw5pH"
   },
   "dones": {
    "titulo": "Activación de Dones para el Terapeuta · Péndulo Hebreo",
@@ -192,7 +192,7 @@
    "precio2": "AR$ 6.990",
    "desc": "Para hacértelo a vos antes de empezar a sanar: 16 etiquetas canalizadas por Mari (tercer ojo, clarividencia, clariaudiencia, dones curativos, tikún, lectura del aura y más) + abrir el campo y limpieza. Listas para imprimir en A4.",
    "link": "https://whop.com/checkout/plan_wJeDYHmnDGXhB/",
-   "link2": "https://mpago.la/1Lrig4V",
+   "link2": "https://mpago.li/233ZSev",
    "img": "testimonio-etiquetas.png"
   },
   "belleza": {
@@ -201,7 +201,7 @@
    "precio2": "AR$ 6.990",
    "desc": "16 etiquetas canalizadas por Mari (cabello, uñas, piel y rejuvenecimiento) + abrir el campo y limpieza. Listas para imprimir en A4.",
    "link": "https://whop.com/checkout/plan_hWlWqgPSvBJhB/",
-   "link2": "https://mpago.la/2kSU5u2",
+   "link2": "https://mpago.li/2ddLdnF",
    "img": "testimonio-etiquetas.png"
   },
   "manifestacion": {
@@ -210,7 +210,7 @@
    "precio2": "AR$ 6.990",
    "desc": "17 etiquetas canalizadas por Mari (atracción, abundancia, dinero, sueños y metas cumplidas) + abrir el campo y limpieza. Listas para imprimir en A4.",
    "link": "https://whop.com/checkout/plan_7q2KOfJIbq53S/",
-   "link2": "https://mpago.la/2WL1irH",
+   "link2": "https://mpago.li/2huHZX8",
    "img": "testimonio-etiquetas.png"
   },
   "chakras": {
@@ -219,7 +219,7 @@
    "precio2": "AR$ 3.990",
    "desc": "Mirá cómo está cada uno de los 7 chakras con tu péndulo: óptimo, dentro de lo normal, en defecto, bloqueado o en exceso. Con cómo se usa (nombre, testigo o testigo ADN) y tabla de mediciones. Listo para imprimir en A4.",
    "link": "https://whop.com/checkout/plan_7BO63aEbqyYEO/",
-   "link2": "https://mpago.la/2scdJci",
+   "link2": "https://mpago.li/1VNgBvX",
    "img": "muestra-biometro-chakras.png",
    "alt": "Vista del Biómetro de Chakras"
   },
@@ -229,7 +229,7 @@
    "precio2": "AR$ 3.990",
    "desc": "Medí en porcentaje (10 % a 100 %) cuánto de algo hay: energía, avance, compatibilidad o certeza, con colores que van de rojo a verde. Con cómo se usa (nombre, testigo o testigo ADN) y tabla de mediciones. Listo para imprimir en A4.",
    "link": "https://whop.com/checkout/plan_edvwvWO9GYQ7M/",
-   "link2": "https://mpago.la/1Z4Phk6",
+   "link2": "https://mpago.li/1YRo72t",
    "img": "muestra-biometro-porcentaje.png",
    "alt": "Vista del Biómetro de Porcentaje"
   },
@@ -239,7 +239,7 @@
    "precio2": "AR$ 13.990",
    "desc": "Una app para el celular que te pregunta todo (tu historia, tus servicios, a quién querés llegar, con o sin tu cara) y te arma el plan del mes completo: qué publicar cada día, guiones de Reels, carruseles, textos listos para copiar e historias que terminan en consultas. Con tu voz. Incluye 3 meses de uso y, de regalo, la guía De terapeuta a marca: identidad de marca, contenido de branding y de venta, cómo viralizarte en Instagram, TikTok y YouTube, 50 ganchos, plantillas para Canva, herramientas e IA gratis y pagas, calendario de fechas holísticas y plan de 90 días. Preventa hasta el lunes 30/11.",
    "link": "https://whop.com/checkout/plan_wXlJTw6Q6bKHj/",
-   "link2": "https://mpago.la/1RfxbtV"
+   "link2": "https://mpago.li/2PrPuyr"
   },
   "adicciones": {
    "titulo": "Protocolo de Adicciones · Péndulo Hebreo",
