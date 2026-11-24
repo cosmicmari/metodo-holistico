@@ -110,7 +110,7 @@ async function abrir(it,d,zona){
   const s=d.querySelector(".s");const antes=s.textContent;s.textContent="Abriendo…";
   try{
     const buf=await aes(it.k,it.iv,await bajar(it.f));
-    if(it.tipo==="app"){document.getElementById("appTit").textContent="Sesión Guiada";document.getElementById("appFrame").srcdoc=new TextDecoder().decode(buf);document.getElementById("app").style.display="flex";s.textContent=antes;return}
+    if(it.tipo==="app"){document.getElementById("appTit").textContent=(it.titulo||"App").split(":")[0];document.getElementById("appFrame").srcdoc=new TextDecoder().decode(buf);document.getElementById("app").style.display="flex";s.textContent=antes;return}
     const url=URL.createObjectURL(new Blob([buf],{type:TIPOS[it.ext]||"application/octet-stream"}));
     if(it.tipo==="pdf"){const a=document.createElement("a");a.href=url;a.download=it.titulo+".pdf";a.target="_blank";document.body.appendChild(a);a.click();a.remove();s.textContent="Listo: se abrió o se descargó";return}
     zona.innerHTML=it.tipo==="video"?`<video controls playsinline src="${url}"></video>`:`<audio controls src="${url}"></audio>`;
